@@ -1,37 +1,8 @@
 library(dplyr)
 library(tibble)
 
-# the goal of this glossary is to keep tidier behavior consistent across broom.
+# the goal of this glossary is to keep tidier behavior consistent across broom/tidymodels.
 # add new arguments as needed if the current arguments aren't appropriate
-
-# helper function to inspect arguments of exported methods
-# need to manually add in list-tidier methods
-method_args <- function(method, all = FALSE) {
-  m <- suppressWarnings(methods(method))
-  df <- attr(m, "info")
-  funs <- rownames(df)
-  
-  # TODO: manually add in list tidier function. errors will show up in tests.
-  list_tidiers <- paste0("tidy_", c("optim", "xyz", "irlba", "svd"))
-  list_glancers <- "glance_optim"
-  
-  get_args <- function(fun_name) {
-    names(formals(getFromNamespace(fun_name, ns = "broom")))
-  }
-  
-  args <- purrr::map(funs, get_args)
-  names(args) <- funs
-  
-  if (!all) {
-    sort(unique(unlist(args)))
-  } else {
-    args
-  }
-}
-
-# method_args(tidy)
-# method_args(glance)
-
 
 glance_arguments <- tribble(
   ~argument, ~description,
@@ -100,7 +71,7 @@ tidy_arguments <- tribble(
   "x", ""
 )
 
-argument_glossary <- 
+argument_glossary <-
   bind_rows(
     glance_arguments,
     augment_arguments,
@@ -108,7 +79,7 @@ argument_glossary <-
     .id = "method"
   ) %>% mutate(
     method = recode(
-      method, 
+      method,
       "1" = "glance",
       "2" = "augment",
       "3" = "tidy"

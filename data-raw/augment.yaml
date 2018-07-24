@@ -71,3 +71,5 @@
   description: The trend component of the decomposition.
 - column: .weight
   description: The final robust weights (`stl` only, if requested).
+- column: .rownames
+  description: blergh

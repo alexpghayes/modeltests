@@ -40,10 +40,10 @@ check_arguments <- function(tidy_method, strict = TRUE) {
     )
   }
 
-  not_allowed <- setdiff(allowed_args, args)
+  not_allowed <- setdiff(args, allowed_args)
 
   expect_true(
-    length(not_allowed) > 0,
+    length(not_allowed) == 0,
     info = paste0(
       "Arguments ", paste(not_allowed, collapse = ", "), " to `", func_name,
       "` must be listed in the argument glossary."
@@ -101,10 +101,13 @@ check_tibble <- function(
     dplyr::filter(method == !!method) %>%
     dplyr::pull(column)
 
+  unacceptable <- setdiff(columns, acceptable_columns)
+
   expect_true(
-    all(columns %in% acceptable_columns),
+    length(unacceptable) == 0,
     info = paste0(
-      "Column names for `", method, "` output must be in the column glossary."
+      "Output column names not in the column glossary: ",
+      paste(unacceptable, collapse = ", ")
     )
   )
 }
@@ -522,11 +525,11 @@ check_tidy_output <- function(td, strict = TRUE) {
 check_dims <- function(data, expected_rows = NULL, expected_cols = NULL) {
 
   if (!is.null(expected_rows)) {
-    expect_equal(nrow(tibble), expected_rows)
+    expect_equal(nrow(data), expected_rows)
   }
 
   if (!is.null(expected_cols)) {
-    expect_equal(ncol(tibble), expected_cols)
+    expect_equal(ncol(data), expected_cols)
   }
 
   invisible()

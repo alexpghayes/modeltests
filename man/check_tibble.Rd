@@ -4,8 +4,7 @@
 \alias{check_tibble}
 \title{Check the output of a tidying method}
 \usage{
-check_tibble(output, method, check_values = FALSE,
-  columns = colnames(output), strict = FALSE)
+check_tibble(output, method, columns = colnames(output), strict = TRUE)
 }
 \arguments{
 \item{output}{Object returned from \code{\link[=tidy]{tidy()}}, \code{\link[=augment]{augment()}} or \code{\link[=glance]{glance()}}.}
@@ -13,22 +12,34 @@ check_tibble(output, method, check_values = FALSE,
 \item{method}{One of \code{"tidy"}, \code{"augment"} or \code{"glance"}. Determines
 which set of column name checks are applied.}
 
-\item{check_values}{Whether to check if \code{output} contains \code{NaN} or \code{Inf}.
-Defaults to \code{FALSE}.}
-
 \item{columns}{The names of the columns in the output data frame. Defaults
-to the column names of \code{output}. Useful for \code{augment} when you only
+to the column names of \code{output}. Useful when checking \code{\link[=augment]{augment()}} when you only
 want to check the new columns in the data frame, as opposed to all
 columns.}
+
+\item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
+to \code{TRUE}.}
+}
+\value{
+An invisible \code{NULL}. This function should be called for side effects, not return values.
 }
 \description{
-Do not use \code{check_tibble} in broom tests. \code{check_glance_output},
-\code{check_augment_function} and \code{check_tidy_output} all call \code{check_tibble}.
-Use those instead. This function is called for its side effects.
-Throws a useful error if \code{output} is not a \code{tibble}. Checks that
-columns in output use acceptable names as defined in the glossary.
-Optionally can check for \code{NaN} or \code{Inf} values. Silent if
-everything goes well.
+Call this function to perform tests. If a tests fails, an informative error
+will be thrown. Otherwise silent.
+
+Tests when \code{strict = FALSE}:
+\itemize{
+\item \code{output} is a tibble.
+}
+
+Additional tests when \code{strict = TRUE}:
+\itemize{
+\item \code{columns} are listed in the \link{column_glossary}.
+}
+}
+\details{
+Do not call directly. Helper function used by \code{\link[=check_tidy_output]{check_tidy_output()}},
+\code{\link[=check_glance_outputs]{check_glance_outputs()}} and \code{\link[=check_augment_function]{check_augment_function()}}.
 }
 \examples{
 
@@ -41,3 +52,4 @@ gl <- glance(fit)
 check_tibble(gl, method = "glance", check_values = TRUE)
 
 }
+\keyword{internal}

@@ -4,19 +4,35 @@
 \alias{check_single_augment_output}
 \title{Check the output of an augment method}
 \usage{
-check_single_augment_output(au, passed_data, strict = FALSE)
+check_single_augment_output(au, passed_data, strict = TRUE)
 }
 \arguments{
-\item{au}{Output from a call to \link{augment}}
+\item{au}{Output from a call to \code{\link[=augment]{augment()}}.}
 
 \item{passed_data}{Whichever of \code{data} or \code{newdata} was passed to
-\code{augment}. Should be a data frame of some sort.}
+\code{augment}. Should be a data frame or tibble.}
+
+\item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
+to \code{TRUE}.}
+}
+\value{
+An invisible \code{NULL}. This function should be called for side effects, not return values.
 }
 \description{
-Do not use \code{check_single_augment_output} in broom tests.
-Use \code{check_augment_function} instead, which will call this function
-for many relevant inputs. As always, call for side effects. Errors
-when \code{augment} specification is violated, otherwise silent.
+Call this function to perform tests. If a tests fails, an informative error
+will be thrown. Otherwise silent.
+
+Test when \code{strict = FALSE}:
+\itemize{
+\item \code{au} passes \code{\link[=check_tibble]{check_tibble()}}.
+\item All column names present in \code{passed_data} are also present in \code{au}.
+}
+
+Additional tests when \code{strict = TRUE}:
+\itemize{
+\item If \code{passed_data} has rownames other than simple row numbers (i.e. \code{paste(1:5)}),
+\code{au} contains a column called \code{.rownames}.
+}
 }
 \examples{
 
@@ -27,3 +43,4 @@ au <- augment(fit)
 check_single_augment_output(au, mtcars)
 
 }
+\keyword{internal}

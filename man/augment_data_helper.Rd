@@ -15,7 +15,7 @@ row of all \code{NA}s to the end of data. This ensures that every column
 has missing data. Defaults to \code{FALSE}.}
 }
 \value{
-A list with three copes of \code{data}:
+A list with three copies of \code{data}:
 \itemize{
 \item \strong{tibble}: the data in a \code{\link[tibble:tibble]{tibble::tibble()}}.
 \item \strong{no_row}: the data in a \code{\link[=data.frame]{data.frame()}} without row names.
@@ -23,10 +23,11 @@ A list with three copes of \code{data}:
 }
 }
 \description{
-Helper function for \code{\link[=check_helper_function]{check_helper_function()}}. There should be no need
-to ever use this in tests. Takes an arbitrary dataset and returns a list
+Helper function for \code{\link[=check_augment_data_specification]{check_augment_data_specification()}}. There should be no need
+to ever use this directly in tests. Takes a dataset and returns a list
 with three copies of the dataset. Optionally introduces \code{NA} values into
-the dataset.
+the dataset. Useful for checking that tibbles, data frames, and data frames with
+rownames are treated equivalently.
 }
 \examples{
 
@@ -36,3 +37,4 @@ augment_data_helper(iris, add_missing = TRUE)
 \seealso{
 \code{\link[=.row_names_info]{.row_names_info()}}, \code{\link[=rownames]{rownames()}}, \code{\link[tibble:rownames_to_column]{tibble::rownames_to_column()}}
 }
+\keyword{internal}

@@ -2,14 +2,53 @@
 % Please edit documentation in R/broom-tests.R
 \name{check_augment_data_specification}
 \alias{check_augment_data_specification}
-\title{Title}
+\title{Check that augment behavior is consistent for dataframes and tibbles}
 \usage{
 check_augment_data_specification(aug, model, data, add_missing,
   test_newdata)
 }
 \arguments{
-\item{test_newdata}{}
+\item{aug}{An augment method. For example, \code{augment.betareg}.}
+
+\item{model}{A fit model object to call the augment method on.}
+
+\item{data}{A data frame or tibble to use when testing \code{aug}.}
+
+\item{add_missing}{Logical indicating whether or not missing data should be
+introduced into the datasets generated with \code{\link[=augment_data_helper]{augment_data_helper()}}. This
+missing data is only used to test the \code{newdata} argument, not the \code{data}
+argument.}
+
+\item{test_newdata}{Logical indicating whether the \code{newdata} argument behavior
+should be tested instead of the \code{data} argument behavior.}
+
+\item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
+to \code{TRUE}.}
+}
+\value{
+An invisible \code{NULL}. This function should be called for side effects, not return values.
 }
 \description{
-Title
+Call this function to perform tests. If a tests fails, an informative error
+will be thrown. Otherwise silent.
+
+Uses \code{\link[=augment_data_helper]{augment_data_helper()}} to create copies of the same dataset as
+a tibble, data frame and dataframe with rownames. When \code{add_missing = TRUE} these
+datasets have missing values along the diagonal, and one row of entirely missing
+values. Once the datasets have been generated, tests that:
+\itemize{
+\item \code{augment(fit, data = generated_dataset)} passes \code{\link[=check_tibble]{check_tibble()}} for each
+generated dataset.
+\item Output of \code{augment(fit, data = generated_dataset)} is the same for all three
+generated datasets, except the data frame with rownames should also generate
+a \code{.rownames} column that the tibble and nameless data frame do not.
 }
+
+Additional tests when \code{test_newdata = TRUE}:
+\itemize{
+\item \code{head(aug(model, newdata = data))} equals \code{aug(head(model, newdata = data))}.
+This commutativity check catches issues where the output of \code{predict} changes
+for the same data point depending on the rest of the dataset.
+}
+}
+\keyword{internal}

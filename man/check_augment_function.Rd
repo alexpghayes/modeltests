@@ -2,20 +2,55 @@
 % Please edit documentation in R/broom-tests.R
 \name{check_augment_function}
 \alias{check_augment_function}
-\title{Check that an augment method works correctly}
+\title{Check an augment method}
 \usage{
 check_augment_function(aug, model, data = NULL, newdata = NULL,
-  strict = FALSE)
+  strict = TRUE)
 }
 \arguments{
-\item{newdata}{}
+\item{aug}{An augment method. For example, \code{augment.betareg}.}
+
+\item{model}{A fit model object to call the augment method on.}
+
+\item{data}{A data frame or tibble to use when testing \code{aug}.}
+
+\item{newdata}{A dataset to use to check the \code{newdata} behavior, ideally distinct
+for the dataset used to check the \code{data} behavior.}
+
+\item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
+to \code{TRUE}.}
+}
+\value{
+An invisible \code{NULL}. This function should be called for side effects, not return values.
 }
 \description{
-Check that an augment method works correctly
+Call this function to perform tests. If a tests fails, an informative error
+will be thrown. Otherwise silent.
+
+Test when \code{strict = FALSE}:
+\itemize{
+\item \code{aug(model, data = data)} passes \code{\link[=check_tibble]{check_tibble()}}
+\item \code{aug(model, newdata = newdata)} passes \code{\link[=check_tibble]{check_tibble()}}
+}
+
+Additional tests when \code{strict = TRUE}:
+\itemize{
+\item \code{aug(model, data = data)} passes \code{\link[=check_augment_data_specification]{check_augment_data_specification()}}.
+\item \code{aug(model, newdata = newdata)} passes \code{\link[=check_augment_data_specification]{check_augment_data_specification()}}.
+\item \code{aug(model, newdata = newdata)} passes \code{\link[=check_augment_data_specification]{check_augment_data_specification()}}
+with \code{add_missing = TRUE}.
+}
+
+Note that it doesn't make sense to test that \code{aug(model, data = data)}
+passes \code{\link[=check_augment_data_specification]{check_augment_data_specification()}} with \code{add_missing = TRUE}. This is
+because the user is already guaranteeing that \code{data} is the original dataset
+used to create \code{model}.
 }
 \examples{
 
 library(betareg)
+library(broom)
+
 fit <- betareg(yield ~ batch + temp, data = GasolineYield)
 
 check_augment_function(

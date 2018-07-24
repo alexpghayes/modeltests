@@ -4,16 +4,31 @@
 \alias{check_arguments}
 \title{Check that tidying methods use allowed argument names}
 \usage{
-check_arguments(tidy_method, strict = FALSE)
+check_arguments(tidy_method, strict = TRUE)
 }
 \arguments{
 \item{tidy_method}{A tidying method. For example: \code{glance.Arima}.}
+
+\item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
+to \code{TRUE}.}
+}
+\value{
+An invisible \code{NULL}. This function should be called for side effects, not return values.
 }
 \description{
-Use this function to test tidying methods in broom tests.
-Called for side effects. Will throw a useful error if
-\code{tidy_method} has unacceptably named arguments.
-Otherwise silent.
+Call this function to perform tests. If a tests fails, an informative error
+will be thrown. Otherwise silent.
+
+Tests when \code{strict = FALSE}:
+\itemize{
+\item None
+}
+
+Tests when \code{strict = TRUE}:
+\itemize{
+\item \code{tidy_method} has a \code{conf.int} argument if it has a \code{conf.level} argument.
+\item All arguments to \code{tidy_method} are listed in the \link{argument_glossary}.
+}
 }
 \examples{
 

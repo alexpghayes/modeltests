@@ -2,13 +2,22 @@
 % Please edit documentation in R/broom-tests.R
 \name{check_tidy_output}
 \alias{check_tidy_output}
-\title{Title}
+\title{Check the output of a tidy method}
 \usage{
-check_tidy_output(td, strict = FALSE)
+check_tidy_output(td, strict = TRUE)
 }
 \arguments{
-\item{strict}{}
+\item{td}{Output from a tidy method.}
+
+\item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
+to \code{TRUE}.}
+}
+\value{
+An invisible \code{NULL}. This function should be called for side effects, not return values.
 }
 \description{
-Title
+Call this function to perform tests. If a tests fails, an informative error
+will be thrown. Otherwise silent.
+
+A thin wrapper around \code{\link[=check_tibble]{check_tibble()}}.
 }

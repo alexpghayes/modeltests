@@ -1,24 +1,16 @@
-#' Check that all elements of a list are equal
-#'
-#' From SO: https://tinyurl.com/list-elems-equal-r
-#'
-#' @param x A list
-#'
-#' @return Either `TRUE` or `FALSE`
-#' @noRd
-#' @export
-all_equal_list <- function(x) {
-  sum(duplicated.default(x)) == length(x) - 1L
-}
-
 #' Check that tidying methods use allowed argument names
 #'
-#' Use this function to test tidying methods in broom tests.
-#' Called for side effects. Will throw a useful error if
-#' `tidy_method` has unacceptably named arguments.
-#' Otherwise silent.
-#'
 #' @param tidy_method A tidying method. For example: `glance.Arima`.
+#' @template boilerplate
+#'
+#' @description Tests when `strict = FALSE`:
+#'
+#' - None
+#'
+#' Tests when `strict = TRUE`:
+#'
+#' - `tidy_method` has a `conf.int` argument if it has a `conf.level` argument.
+#' - All arguments to `tidy_method` are listed in the [argument_glossary].
 #'
 #' @seealso [testthat], [testthat::expect_true()]
 #' @export
@@ -27,11 +19,10 @@ all_equal_list <- function(x) {
 #' library(broom)
 #' check_arguments(tidy.Arima)
 #'
-check_arguments <- function(tidy_method, strict = FALSE) {
-
-  expect_true(TRUE)  # prevent skip message
+check_arguments <- function(tidy_method, strict = TRUE) {
 
   if (!strict) {
+    expect_true(TRUE)  # prevent skip message
     return(invisible())
   }
 
@@ -49,39 +40,41 @@ check_arguments <- function(tidy_method, strict = FALSE) {
     )
   }
 
-  # TODO: print names of arguments in violation to make debugging easier
+  not_allowed <- setdiff(allowed_args, args)
 
   expect_true(
-    all(args %in% allowed_args),
+    length(not_allowed) > 0,
     info = paste0(
-      "Arguments to `", func_name, "` must be listed in the argument glossary."
+      "Arguments ", paste(not_allowed, collapse = ", "), " to `", func_name,
+      "` must be listed in the argument glossary."
     )
   )
-
-  # check all arguments other than `x` has default arguments
 }
 
 #' Check the output of a tidying method
 #'
-#' Do not use `check_tibble` in broom tests. `check_glance_output`,
-#' `check_augment_function` and `check_tidy_output` all call `check_tibble`.
-#' Use those instead. This function is called for its side effects.
-#' Throws a useful error if `output` is not a `tibble`. Checks that
-#' columns in output use acceptable names as defined in the glossary.
-#' Optionally can check for `NaN` or `Inf` values. Silent if
-#' everything goes well.
+#' Do not call directly. Helper function used by [check_tidy_output()],
+#' [check_glance_outputs()] and [check_augment_function()].
+#'
+#' @template boilerplate
+#' @keywords internal
 #'
 #' @param output Object returned from [tidy()], [augment()] or [glance()].
 #' @param method One of `"tidy"`, `"augment"` or `"glance"`. Determines
 #'   which set of column name checks are applied.
-#' @param check_values Whether to check if `output` contains `NaN` or `Inf`.
-#'   Defaults to `FALSE`.
 #' @param columns The names of the columns in the output data frame. Defaults
-#'   to the column names of `output`. Useful for `augment` when you only
+#'   to the column names of `output`. Useful when checking [augment()] when you only
 #'   want to check the new columns in the data frame, as opposed to all
 #'   columns.
 #'
-#' @export
+#' @description Tests when `strict = FALSE`:
+#'
+#' - `output` is a tibble.
+#'
+#' Additional tests when `strict = TRUE`:
+#'
+#' - `columns` are listed in the [column_glossary].
+#'
 #' @examples
 #'
 #' library(broom)
@@ -95,17 +88,14 @@ check_arguments <- function(tidy_method, strict = FALSE) {
 check_tibble <- function(
   output,
   method,
-  check_values = FALSE,
   columns = colnames(output),
-  strict = FALSE) {
+  strict = TRUE) {
 
   expect_s3_class(output, "tbl_df")
 
   if (!strict) {
-    return(invisible(NULL))
+    return(invisible())
   }
-
-  # TODO: implement NaN / Inf checks
 
   acceptable_columns <- column_glossary %>%
     dplyr::filter(method == !!method) %>%
@@ -121,11 +111,18 @@ check_tibble <- function(
 
 #' Check the output of a glance method
 #'
-#' Use this function to test glance methods in broom tests.
-#' Called for side effects. Will throw a useful error if
-#' `glance` specification is violated. Otherwise silent.
+#' @template boilerplate
 #'
 #' @param ... Outputs returned from calls to (the same) [glance] method.
+#'
+#' @description Tests when `strict = FALSE`:
+#'
+#' - Each item passed to `...` passes [check_tibble()]
+#' - Each item passed to `...` has exactly 1 row.
+#'
+#' Additional tests when `strict = TRUE`:
+#'
+#' - Column names and order agree across all elements of `...`.
 #'
 #' @export
 #' @seealso [check_tibble()]
@@ -146,7 +143,7 @@ check_tibble <- function(
 #'
 #' check_glance_outputs(gl, gl2)
 #'
-check_glance_outputs <- function(..., strict = FALSE) {
+check_glance_outputs <- function(..., strict = TRUE) {
 
   check_single_glance_output <- function(gl) {
     check_tibble(gl, method = "glance")
@@ -160,7 +157,7 @@ check_glance_outputs <- function(..., strict = FALSE) {
   purrr::walk(glances, check_single_glance_output)
 
   if (!strict) {
-    return(invisible(NULL))
+    return(invisible())
   }
 
   expect_true(
@@ -171,14 +168,22 @@ check_glance_outputs <- function(..., strict = FALSE) {
 
 #' Check the output of an augment method
 #'
-#' Do not use `check_single_augment_output` in broom tests.
-#' Use `check_augment_function` instead, which will call this function
-#' for many relevant inputs. As always, call for side effects. Errors
-#' when `augment` specification is violated, otherwise silent.
+#' @template boilerplate
+#' @keywords internal
 #'
-#' @param au Output from a call to [augment]
+#' @param au Output from a call to [augment()].
 #' @param passed_data Whichever of `data` or `newdata` was passed to
-#'   `augment`. Should be a data frame of some sort.
+#'   `augment`. Should be a data frame or tibble.
+#'
+#' @description Test when `strict = FALSE`:
+#'
+#' - `au` passes [check_tibble()].
+#' - All column names present in `passed_data` are also present in `au`.
+#'
+#' Additional tests when `strict = TRUE`:
+#'
+#' - If `passed_data` has rownames other than simple row numbers (i.e. `paste(1:5)`),
+#'   `au` contains a column called `.rownames`.
 #'
 #' @examples
 #'
@@ -188,7 +193,7 @@ check_glance_outputs <- function(..., strict = FALSE) {
 #' au <- augment(fit)
 #' check_single_augment_output(au, mtcars)
 #'
-check_single_augment_output <- function(au, passed_data, strict = FALSE) {
+check_single_augment_output <- function(au, passed_data, strict = TRUE) {
 
   orig_cols <- colnames(passed_data)
   aug_cols <- colnames(au)
@@ -197,7 +202,7 @@ check_single_augment_output <- function(au, passed_data, strict = FALSE) {
   check_tibble(au, method = "augment", columns = new_cols)
 
   expect_equal(nrow(au), nrow(passed_data),
-               info = "Augmented data must have same number of rows as original data."
+    info = "Augmented data must have same number of rows as original data."
   )
 
   expect_true(
@@ -206,7 +211,7 @@ check_single_augment_output <- function(au, passed_data, strict = FALSE) {
   )
 
   if (!strict) {
-    return(invisible(NULL))
+    return(invisible())
   }
 
   if (.row_names_info(passed_data) > 0) {
@@ -225,10 +230,11 @@ check_single_augment_output <- function(au, passed_data, strict = FALSE) {
 
 #' Get copies of a dataset with various rowname behaviors
 #'
-#' Helper function for [check_helper_function()]. There should be no need
-#' to ever use this in tests. Takes an arbitrary dataset and returns a list
+#' Helper function for [check_augment_data_specification()]. There should be no need
+#' to ever use this directly in tests. Takes a dataset and returns a list
 #' with three copies of the dataset. Optionally introduces `NA` values into
-#' the dataset.
+#' the dataset. Useful for checking that tibbles, data frames, and data frames with
+#' rownames are treated equivalently.
 #'
 #' @param data A data set as a `data.frame` or `tibble`.
 #' @param add_missing Whether or not to set some values in `data` to `NA`.
@@ -236,12 +242,13 @@ check_single_augment_output <- function(au, passed_data, strict = FALSE) {
 #'   row of all `NA`s to the end of data. This ensures that every column
 #'   has missing data. Defaults to `FALSE`.
 #'
-#' @return A list with three copes of `data`:
+#' @return A list with three copies of `data`:
 #' - **tibble**: the data in a [tibble::tibble()].
 #' - **no_row**: the data in a [data.frame()] without row names.
 #' - **row_nm**: the data in a `data.frame`, with row names.
 #'
 #' @seealso [.row_names_info()], [rownames()], [tibble::rownames_to_column()]
+#' @keywords internal
 #' @examples
 #'
 #' augment_data_helper(iris, add_missing = TRUE)
@@ -264,26 +271,44 @@ augment_data_helper <- function(data, add_missing) {
   list(tibble = tibble, no_row = no_row, row_nm = row_nm)
 }
 
-#' Title
+#' Check that augment behavior is consistent for dataframes and tibbles
 #'
-#' @param aug
-#' @param model
-#' @param data
-#' @param add_missing
-#' @param test_newdata
+#' @template boilerplate
+#' @keywords internal
 #'
-#' @return
-#' @export
+#' @description Uses [augment_data_helper()] to create copies of the same dataset as
+#' a tibble, data frame and dataframe with rownames. When `add_missing = TRUE` these
+#' datasets have missing values along the diagonal, and one row of entirely missing
+#' values. Once the datasets have been generated, tests that:
 #'
-#' @examples
+#' - `augment(fit, data = generated_dataset)` passes [check_tibble()] for each
+#'   generated dataset.
+#' - Output of `augment(fit, data = generated_dataset)` is the same for all three
+#'   generated datasets, except the data frame with rownames should also generate
+#'   a `.rownames` column that the tibble and nameless data frame do not.
+#'
+#' Additional tests when `test_newdata = TRUE`:
+#'
+#' - `head(aug(model, newdata = data))` equals `aug(head(model, newdata = data))`.
+#'   This commutativity check catches issues where the output of `predict` changes
+#'   for the same data point depending on the rest of the dataset.
+#'
+#' @param aug An augment method. For example, `augment.betareg`.
+#' @param model A fit model object to call the augment method on.
+#' @param data A data frame or tibble to use when testing `aug`.
+#' @param add_missing Logical indicating whether or not missing data should be
+#'   introduced into the datasets generated with [augment_data_helper()]. This
+#'   missing data is only used to test the `newdata` argument, not the `data`
+#'   argument.
+#' @param test_newdata Logical indicating whether the `newdata` argument behavior
+#'   should be tested instead of the `data` argument behavior.
+#'
 check_augment_data_specification <- function(
   aug,
   model,
   data,
   add_missing,
   test_newdata) {
-
-  # aug, data pulled from environment of calling function?
 
   dl <- augment_data_helper(data, add_missing)
   new_dl <- dl
@@ -304,21 +329,7 @@ check_augment_data_specification <- function(
   purrr::walk2(au_list, passed_data, check_single_augment_output)
 
   expect_equal(au_tibble, au_no_row,
-               info = "Augmented data must be the same for tibble and data frame input."
-  )
-
-  # au_row_nm should have a `.rownames` column not present in `au_tibble` or
-  # `au_no_row`. presence is checked in `check_single_augment_output`,
-  # here we just that that the results are the same after stripping this
-  # column out.
-
-  expect_equal(
-    au_no_row,
-    dplyr::select(au_row_nm, -.rownames),
-    info = paste(
-      "Augmented data must be the same for dataframes with and without",
-      "rownames."
-    )
+    info = "Augmented data must be the same for tibble and data frame input."
   )
 
   # au_row_nm should have a `.rownames` column not present in `au_tibble` or
@@ -360,19 +371,38 @@ check_augment_data_specification <- function(
 }
 
 
-#' Check that an augment method works correctly
+#' Check an augment method
 #'
-#' @param aug
-#' @param model
-#' @param data
-#' @param newdata
+#' @template boilerplate
 #'
-#' @return
+#' @inheritParams check_augment_data_specification
+#' @param newdata A dataset to use to check the `newdata` behavior, ideally distinct
+#'   for the dataset used to check the `data` behavior.
+#'
 #' @export
+#'
+#' @description Test when `strict = FALSE`:
+#'
+#' - `aug(model, data = data)` passes [check_tibble()]
+#' - `aug(model, newdata = newdata)` passes [check_tibble()]
+#'
+#' Additional tests when `strict = TRUE`:
+#'
+#' - `aug(model, data = data)` passes [check_augment_data_specification()].
+#' - `aug(model, newdata = newdata)` passes [check_augment_data_specification()].
+#' - `aug(model, newdata = newdata)` passes [check_augment_data_specification()]
+#'   with `add_missing = TRUE`.
+#'
+#' Note that it doesn't make sense to test that `aug(model, data = data)`
+#' passes [check_augment_data_specification()] with `add_missing = TRUE`. This is
+#' because the user is already guaranteeing that `data` is the original dataset
+#' used to create `model`.
 #'
 #' @examples
 #'
 #' library(betareg)
+#' library(broom)
+#'
 #' fit <- betareg(yield ~ batch + temp, data = GasolineYield)
 #'
 #' check_augment_function(
@@ -387,7 +417,7 @@ check_augment_function <- function(
   model,
   data = NULL,
   newdata = NULL,
-  strict = FALSE) {
+  strict = TRUE) {
 
   args <- names(formals(aug))
 
@@ -446,7 +476,7 @@ check_augment_function <- function(
     check_augment_data_specification(
       aug = aug,
       model = model,
-      data = data,
+      data = newdata,
       add_missing = FALSE,
       test_newdata = TRUE
     )
@@ -454,38 +484,42 @@ check_augment_function <- function(
     check_augment_data_specification(
       aug = aug,
       model = model,
-      data = data,
+      data = newdata,
       add_missing = TRUE,
       test_newdata = TRUE
     )
   }
 }
 
-
-#' Title
+#' Check the output of a tidy method
 #'
-#' @param td
-#' @param strict
+#' @template boilerplate
 #'
-#' @return
+#' @description A thin wrapper around [check_tibble()].
+#'
+#' @param td Output from a tidy method.
+#' @inherit check_tibble params return
+#'
 #' @export
-#'
-#' @examples
-check_tidy_output <- function(td, strict = FALSE) {
+check_tidy_output <- function(td, strict = TRUE) {
   check_tibble(td, method = "tidy", strict = strict)
 }
 
-#' Title
+#' Check that tibble has expected dimensions.
 #'
-#' @param tibble
-#' @param expected_rows
-#' @param expected_cols
+#' @template boilerplate
 #'
-#' @return
+#' @param data A tibble or data frame.
+#' @param expected_rows Expected number of rows of tibble.
+#' @param expected_cols Expected number of columns of tibble.
+#'
 #' @export
 #'
 #' @examples
-check_dims <- function(tibble, expected_rows = NULL, expected_cols = NULL) {
+#'
+#' check_dims(iris, expected_rows = 150)
+#'
+check_dims <- function(data, expected_rows = NULL, expected_cols = NULL) {
 
   if (!is.null(expected_rows)) {
     expect_equal(nrow(tibble), expected_rows)
@@ -494,32 +528,6 @@ check_dims <- function(tibble, expected_rows = NULL, expected_cols = NULL) {
   if (!is.null(expected_cols)) {
     expect_equal(ncol(tibble), expected_cols)
   }
-}
 
-## old code to check augment behavior with various NA options
-
-
-
-#' check the output of an augment function
-#'
-#' @param au
-#' @param original
-#' @param exp.names
-#' @param same
-check_augment <- function(au, original = NULL, exp.names = NULL,
-                          same = NULL) {
-  check_tidiness(au)
-
-  if (!is.null(original)) {
-    # check that all rows in original appear in output
-    expect_equal(nrow(au), nrow(original))
-    # check that columns are the same
-    for (column in same) {
-      expect_equal(au[[column]], original[[column]])
-    }
-  }
-
-  if (!is.null(exp.names)) {
-    expect_true(all(exp.names %in% colnames(au)))
-  }
+  invisible()
 }

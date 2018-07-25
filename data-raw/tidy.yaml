@@ -3,6 +3,14 @@
     hand side of the model formula.
 - column: cumulative
   description: Cumulative percentage of variation explained.
+- column: cutoffs
+  description: TODO
+- column: pseudo.r.squared
+  description: TODO
+- column: autocorrelation
+  description: TODO
+- column: alternative
+  description: TODO
 - column: PC
   description: An integer vector indicating the principal component.
 - column: percent

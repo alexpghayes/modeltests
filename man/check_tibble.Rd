@@ -52,4 +52,3 @@ gl <- glance(fit)
 check_tibble(gl, method = "glance", check_values = TRUE)
 
 }
-\keyword{internal}

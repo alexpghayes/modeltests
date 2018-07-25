@@ -5,11 +5,21 @@
   description: Cumulative percentage of variation explained.
 - column: cutoffs
   description: TODO
-- column: pseudo.r.squared
-  description: TODO
 - column: autocorrelation
   description: TODO
 - column: alternative
+  description: TODO
+- column: comp
+  description: TODO
+- column: lhs
+  description: TODO
+- column: rhs
+  description: TODO
+- column: tau
+  description: TODO
+- column: coefficient_type
+  description: TODO
+- column: y.level
   description: TODO
 - column: PC
   description: An integer vector indicating the principal component.

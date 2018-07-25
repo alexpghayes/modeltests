@@ -57,7 +57,6 @@ check_arguments <- function(tidy_method, strict = TRUE) {
 #' [check_glance_outputs()] and [check_augment_function()].
 #'
 #' @template boilerplate
-#' @keywords internal
 #'
 #' @param output Object returned from [tidy()], [augment()] or [glance()].
 #' @param method One of `"tidy"`, `"augment"` or `"glance"`. Determines
@@ -75,6 +74,7 @@ check_arguments <- function(tidy_method, strict = TRUE) {
 #'
 #' - `columns` are listed in the [column_glossary].
 #'
+#' @export
 #' @examples
 #'
 #' library(broom)
@@ -149,7 +149,7 @@ check_tibble <- function(
 check_glance_outputs <- function(..., strict = TRUE) {
 
   check_single_glance_output <- function(gl) {
-    check_tibble(gl, method = "glance")
+    check_tibble(gl, method = "glance", strict = strict)
     expect_equal(
       nrow(gl), 1,
       info = "Glance must return a tibble with exactly 1 row."

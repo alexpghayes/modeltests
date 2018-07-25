@@ -1,3 +1,9 @@
+- column: pseudo.r.squared
+  description: TODO
+- column: autocorrelation
+  description: TODO
+- column: alternative
+  description: TODO
 - column: adj.r.squared
   description: Adjusted R squared statistic, which is like the R squared statistic
     except taking degrees of freedom into account.

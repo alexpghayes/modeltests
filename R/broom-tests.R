@@ -26,7 +26,8 @@ check_arguments <- function(tidy_method, strict = TRUE) {
     return(invisible())
   }
 
-  args <- names(formals(tidy_method))
+  arglist <- as.list(formals(tidy_method))
+  args <- names(arglist)
   func_name <- as.character(substitute(tidy_method))
 
   # functions might be: tidy.irlba *or* tidy_irlba for list tidiers
@@ -38,7 +39,30 @@ check_arguments <- function(tidy_method, strict = TRUE) {
       "conf.int" %in% args,
       info = "Tidiers with `conf.level` argument must have `conf.int` argument."
     )
+
+    expect_equal(
+      arglist$conf.level, 0.95,
+      info = "`conf.level` argument must default to `0.95`."
+    )
   }
+
+  if ("conf.int" %in% args) {
+    expect_false(
+      arglist$conf.int,
+      info = "`conf.int` argument must default to `FALSE`."
+    )
+  }
+
+  no_defaults <- names(arglist[purrr::map_lgl(arglist, is.name)])
+  no_defaults <- setdiff(no_defaults, c("x", "..."))
+
+  expect_true(
+    length(no_defaults) == 0,
+    info = paste0(
+      "Arguments ", paste(no_defaults, collapse = ", "), " to `", func_name,
+      "` must have default values. Use `NULL` to indicate missingness if necessary."
+    )
+  )
 
   not_allowed <- setdiff(args, allowed_args)
 

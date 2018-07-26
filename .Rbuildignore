@@ -1,3 +1,8 @@
+^\.github$
+^codecov\.yml$
+^\.travis\.yml$
+^README\.Rmd$
+^appveyor\.yml$
 ^LICENSE\.md$
 ^data-raw$
 ^.*\.Rproj$

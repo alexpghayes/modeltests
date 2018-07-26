@@ -1,0 +1,44 @@
+.class: The predicted class. Needs custom info. (TODO -- make this a factor?)
+.cluster: The cluster assigned by the k-means algorithm
+.col.prop: Column proportion (2 dimensions table only)
+.conf.high: Upper confidence interval value  `predict.rq` does not provide confidence
+  intervals when `newdata` is provided.
+.conf.low: Lower confidence interval value.
+.cooksd: Cooks distance. See [stats::cooks.distance()] for additional details.
+.expected: Expected count under the null hypothesis
+.fitted: Fitted / predicted value.
+.fitted_j_0: population-level fitted values for the j-th longitudinal process
+.fitted_j_1: individuals-level fitted values for the j-th longitudinal process
+.hat: Diagonal of the hat matrix. TODO -- add interpretation.
+.observed: Observed count
+.probability: Posterior probability of predicted class  If the `data` argument is
+  given, those columns are included in the output (only rows for which predictions
+  could be made). Otherwise, the `y` element of the poLCA object, which contains the
+  manifest variables used to fit the model, are used, along with any covariates, if
+  present, in `x`.  Note that while the probability of all the classes (not just the
+  predicted modal class) can be found in the `posterior` element, these are not included
+  in the augmented output.
+.prop: Proportion of the total
+.remainder: The remainder, or *random* component of the decomposition.
+.resid: Residuals of fitted values. TODO -- document when present. Residuals on which
+  data set?
+.resid_j_0: population-level residuals for the j-th longitudinal process
+.resid_j_1: individual-level residuals for the j-th longitudinal process
+.residuals: Pearson residual
+.row.prop: Row proportion (2 dimensions table only)
+.rownames: blergh
+.se.fit: Standard errors of fitted values. TODO -- prediction or mean interval?
+.seasadj: The seasonally adjusted (or *deseasonalised*) series.
+.seasonal: The seasonal component of the decomposition.
+.sigma: Estimate of residual standard deviation when corresponding observation is
+  dropped from model. Same as LOO-CV estimate?.
+.std.resid: Standardised residuals  Some unusual `lm` objects, such as `rlm` from
+  MASS, may omit `.cooksd` and `.std.resid`.
+.stdres: Standardized residual
+.tau: Quantile estimated  Depending on the arguments passed on to `predict.rq` via
+  `...`, a confidence interval is also calculated on the fitted values.
+.trend: The trend component of the decomposition.
+.uncertainty: The uncertainty associated with the classification. If a point has a
+  probability of 0.9 of being in its assigned class under the model, then the uncertainty
+  is 0.1.
+.weight: The final robust weights (`stl` only, if requested).

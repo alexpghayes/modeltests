@@ -397,52 +397,42 @@ check_augment_function <- function(
   data_passed <- !is.null(data)
   newdata_passed <- !is.null(newdata)
 
-  data_arg <- "data" %in% args
   newdata_arg <- "newdata" %in% args
 
-  if (data_arg && !data_passed) {
-    stop("Must pass data to augment checker as augment method accepts data",
-         "argument.")
-  }
+  if (!data_passed)
+    stop("Must pass `data` argument as augment method accepts data argument.")
 
-  if (newdata_arg && !newdata_passed) {
-    stop("Must pass newdata to augment checker as augment method accepts",
-         "newdata argument.")
-  }
+  if (newdata_arg && !newdata_passed)
+    stop("Must pass `newdata` argument as augment method accepts newdata argument.")
 
   if (!strict) {
 
-    if (data_arg) {
-      au_data <- augment(model, data = data)
-      check_tibble(au_data, method = "augment", strict = strict)
-    }
+    au_data <- aug(model, data = data)
+    check_tibble(au_data, method = "augment", strict = strict)
 
     if (newdata_arg) {
-      au_newdata <- augment(model, newdata = newdata)
+      au_newdata <- aug(model, newdata = newdata)
       check_tibble(au_newdata, method = "augment", strict = strict)
     }
 
     return(invisible())
   }
 
-  if (data_arg) {
+  # make sure data in data frame, dataframe with rows, and tibble
+  # all give expected results
 
-    # make sure data in data frame, dataframe with rows, and tibble
-    # all give expected results
+  check_augment_data_specification(
+    aug = aug,
+    model = model,
+    data = data,
+    add_missing = FALSE,
+    test_newdata = FALSE
+  )
 
-    check_augment_data_specification(
-      aug = aug,
-      model = model,
-      data = data,
-      add_missing = FALSE,
-      test_newdata = FALSE
-    )
-
-    # we don't check add_missing = TRUE for the data argument because the
-    # user is guaranteeing us that the data they give us is the same
-    # they gave to the modelling function. also, the new row of NAs added
-    # *should* cause things like influence calculates to break
-  }
+  # we don't check add_missing = TRUE for the data argument because the
+  # user is guaranteeing us that the data they give us is the same
+  # they gave to the modelling function. also, the new row of NAs added
+  # *should* cause things like influence calculates to break
 
   if (newdata_arg) {
 

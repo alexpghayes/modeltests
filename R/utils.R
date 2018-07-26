@@ -10,8 +10,17 @@ all_equal_list <- function(x) {
   sum(duplicated.default(x)) == length(x) - 1L
 }
 
+
+#' Check whether or not a data-frame-like object has rownames
+#'
+#' @param df A data frame
+#'
+#' @return Logical indicating if `df` has rownames. If `df` is a tibble, returns `FALSE`.
+#'   If `df` is a data.frame, return `FALSE` if the rownames are simply row numbers. If the
+#'   rownames are anything other than the return row numbers, returns `TRUE`.
+#' @export
 has_rownames <- function(df) {
-  if (is_tibble(df))
+  if (tibble::is_tibble(df))
     return(FALSE)
 
   any(rownames(df) != as.character(1:nrow(df)))

@@ -41,14 +41,3 @@ Additional tests when \code{strict = TRUE}:
 Do not call directly. Helper function used by \code{\link[=check_tidy_output]{check_tidy_output()}},
 \code{\link[=check_glance_outputs]{check_glance_outputs()}} and \code{\link[=check_augment_function]{check_augment_function()}}.
 }
-\examples{
-
-library(broom)
-
-fit <- lm(hp ~ ., mtcars)
-gl <- glance(fit)
-
-# but don't do this, use: `check_glance_output(gl)` instead
-check_tibble(gl, method = "glance", check_values = TRUE)
-
-}

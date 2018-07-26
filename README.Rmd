@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
 
 Example use:
 
-- The [`dustpan`]https://github.com/alexpghayes/dustpan) package is a small demonstration of how to use `modeltests` and `modelgenerics`
+- The [`dustpan`](https://github.com/alexpghayes/dustpan) package is a small demonstration of how to use `modeltests` and `modelgenerics`
 - See the test suite in [`broom`](https://github.com/tidymodels/broom)
 
 A detailed vignette is in progress in broom as well.

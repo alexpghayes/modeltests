@@ -12,16 +12,9 @@ check_dims(data, expected_rows = NULL, expected_cols = NULL)
 \item{expected_rows}{Expected number of rows of tibble.}
 
 \item{expected_cols}{Expected number of columns of tibble.}
-
-\item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
-to \code{TRUE}.}
-}
-\value{
-An invisible \code{NULL}. This function should be called for side effects, not return values.
 }
 \description{
-Call this function to perform tests. If a tests fails, an informative error
-will be thrown. Otherwise silent.
+Check that tibble has expected dimensions.
 }
 \examples{
 

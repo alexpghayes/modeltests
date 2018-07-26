@@ -34,13 +34,4 @@ Additional tests when \code{strict = TRUE}:
 \code{au} contains a column called \code{.rownames}.
 }
 }
-\examples{
-
-library(broom)
-
-fit <- lm(hp ~ ., mtcars)
-au <- augment(fit)
-check_single_augment_output(au, mtcars)
-
-}
 \keyword{internal}

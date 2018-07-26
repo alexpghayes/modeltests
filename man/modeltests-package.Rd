@@ -4,9 +4,17 @@
 \name{modeltests-package}
 \alias{modeltests}
 \alias{modeltests-package}
-\title{modeltests: What the Package Does (Title Case)}
+\title{modeltests: Testing Infrastructure for Broom Model Generics}
 \description{
-More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Provides a number of testthat tests that can be used to verify that tidy(), glance()
+    and augment() methods meet specification.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/alexpghayes/modeltests}
+  \item Report bugs at \url{https://github.com/alexpghayes/modeltests/issues}
+}
+
 }
 \keyword{internal}

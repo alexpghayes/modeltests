@@ -1,5 +1,6 @@
 ^\.github$
 ^codecov\.yml$
+^man-roxygen$
 ^\.travis\.yml$
 ^README\.Rmd$
 ^appveyor\.yml$

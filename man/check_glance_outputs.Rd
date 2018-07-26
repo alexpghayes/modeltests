@@ -30,24 +30,6 @@ Additional tests when \code{strict = TRUE}:
 \item Column names and order agree across all elements of \code{...}.
 }
 }
-\examples{
-
-library(broom)
-
-fit <- lm(hp ~ ., mtcars)
-fit2 <- lm(hp ~ 1, mtcars)
-
-gl <- glance(fit)
-gl2 <- glance(fit2)
-
-check_glance_outputs(gl)  # can check a single glance
-
-# checking multiple glance outputs for same model type makes sure
-# column names are consistent
-
-check_glance_outputs(gl, gl2)
-
-}
 \seealso{
 \code{\link[=check_tibble]{check_tibble()}}
 }

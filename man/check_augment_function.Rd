@@ -46,18 +46,3 @@ passes \code{\link[=check_augment_data_specification]{check_augment_data_specifi
 because the user is already guaranteeing that \code{data} is the original dataset
 used to create \code{model}.
 }
-\examples{
-
-library(betareg)
-library(broom)
-
-fit <- betareg(yield ~ batch + temp, data = GasolineYield)
-
-check_augment_function(
-  aug = augment.betareg,
-  model = fit,
-  data = GasolineYield,
-  newdata = GasolineYield
-)
-
-}

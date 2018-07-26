@@ -14,10 +14,6 @@
 #'
 #' @seealso [testthat], [testthat::expect_true()]
 #' @export
-#' @examples
-#'
-#' library(broom)
-#' check_arguments(tidy.Arima)
 #'
 check_arguments <- function(tidy_method, strict = TRUE) {
 
@@ -64,7 +60,7 @@ check_arguments <- function(tidy_method, strict = TRUE) {
     )
   )
 
-  not_allowed <- setdiff(args, allowed_args)
+  not_allowed <- setdiff(args, c(allowed_args, "x", "..."))
 
   expect_true(
     length(not_allowed) == 0,
@@ -99,15 +95,6 @@ check_arguments <- function(tidy_method, strict = TRUE) {
 #' - `columns` are listed in the [column_glossary].
 #'
 #' @export
-#' @examples
-#'
-#' library(broom)
-#'
-#' fit <- lm(hp ~ ., mtcars)
-#' gl <- glance(fit)
-#'
-#' # but don't do this, use: `check_glance_output(gl)` instead
-#' check_tibble(gl, method = "glance", check_values = TRUE)
 #'
 check_tibble <- function(
   output,
@@ -153,22 +140,6 @@ check_tibble <- function(
 #'
 #' @export
 #' @seealso [check_tibble()]
-#' @examples
-#'
-#' library(broom)
-#'
-#' fit <- lm(hp ~ ., mtcars)
-#' fit2 <- lm(hp ~ 1, mtcars)
-#'
-#' gl <- glance(fit)
-#' gl2 <- glance(fit2)
-#'
-#' check_glance_outputs(gl)  # can check a single glance
-#'
-#' # checking multiple glance outputs for same model type makes sure
-#' # column names are consistent
-#'
-#' check_glance_outputs(gl, gl2)
 #'
 check_glance_outputs <- function(..., strict = TRUE) {
 
@@ -211,14 +182,6 @@ check_glance_outputs <- function(..., strict = TRUE) {
 #'
 #' - If `passed_data` has rownames other than simple row numbers (i.e. `paste(1:5)`),
 #'   `au` contains a column called `.rownames`.
-#'
-#' @examples
-#'
-#' library(broom)
-#'
-#' fit <- lm(hp ~ ., mtcars)
-#' au <- augment(fit)
-#' check_single_augment_output(au, mtcars)
 #'
 check_single_augment_output <- function(au, passed_data, strict = TRUE) {
 
@@ -276,9 +239,6 @@ check_single_augment_output <- function(au, passed_data, strict = TRUE) {
 #'
 #' @seealso [.row_names_info()], [rownames()], [tibble::rownames_to_column()]
 #' @keywords internal
-#' @examples
-#'
-#' augment_data_helper(iris, add_missing = TRUE)
 #'
 augment_data_helper <- function(data, add_missing) {
 
@@ -425,20 +385,6 @@ check_augment_data_specification <- function(
 #' because the user is already guaranteeing that `data` is the original dataset
 #' used to create `model`.
 #'
-#' @examples
-#'
-#' library(betareg)
-#' library(broom)
-#'
-#' fit <- betareg(yield ~ batch + temp, data = GasolineYield)
-#'
-#' check_augment_function(
-#'   aug = augment.betareg,
-#'   model = fit,
-#'   data = GasolineYield,
-#'   newdata = GasolineYield
-#' )
-#'
 check_augment_function <- function(
   aug,
   model,
@@ -533,8 +479,6 @@ check_tidy_output <- function(td, strict = TRUE) {
 }
 
 #' Check that tibble has expected dimensions.
-#'
-#' @template boilerplate
 #'
 #' @param data A tibble or data frame.
 #' @param expected_rows Expected number of rows of tibble.

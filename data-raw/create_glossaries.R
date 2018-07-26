@@ -8,6 +8,7 @@ recode_method <- function(df) {
 
 load_yaml <- function(method, columns = TRUE) {
   prefix <- if (columns) "columns" else "arguments"
+  key_name <- if (columns) "column" else "argument"
   yml_file <- paste0("data-raw/", prefix, "_", method, ".yaml")
 
   yml <- yaml::read_yaml(yml_file)
@@ -17,7 +18,7 @@ load_yaml <- function(method, columns = TRUE) {
 
   yml %>%
     unlist() %>%
-    tibble::enframe("column", "description")
+    tibble::enframe(key_name, "description")
 }
 
 column_glossary <- methods %>%

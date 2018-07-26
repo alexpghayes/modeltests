@@ -29,11 +29,6 @@ with three copies of the dataset. Optionally introduces \code{NA} values into
 the dataset. Useful for checking that tibbles, data frames, and data frames with
 rownames are treated equivalently.
 }
-\examples{
-
-augment_data_helper(iris, add_missing = TRUE)
-
-}
 \seealso{
 \code{\link[=.row_names_info]{.row_names_info()}}, \code{\link[=rownames]{rownames()}}, \code{\link[tibble:rownames_to_column]{tibble::rownames_to_column()}}
 }

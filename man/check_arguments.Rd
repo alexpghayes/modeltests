@@ -30,12 +30,6 @@ Tests when \code{strict = TRUE}:
 \item All arguments to \code{tidy_method} are listed in the \link{argument_glossary}.
 }
 }
-\examples{
-
-library(broom)
-check_arguments(tidy.Arima)
-
-}
 \seealso{
 \link{testthat}, \code{\link[testthat:expect_true]{testthat::expect_true()}}
 }

@@ -204,7 +204,7 @@ check_single_augment_output <- function(au, passed_data, strict = TRUE) {
     return(invisible())
   }
 
-  if (.row_names_info(passed_data) > 0) {
+  if (has_rownames(passed_data)) {
     row_nm <- rownames(passed_data)
     if (all(row_nm != seq_along(row_nm))) {
       expect_true(
@@ -252,7 +252,7 @@ augment_data_helper <- function(data, add_missing) {
   no_row <- as.data.frame(data)
   rownames(no_row) <- NULL
 
-  row_nm <- data
+  row_nm <- no_row
   rownames(row_nm) <- paste0("obs", 1:nrow(data))
 
   list(tibble = tibble, no_row = no_row, row_nm = row_nm)
@@ -499,6 +499,4 @@ check_dims <- function(data, expected_rows = NULL, expected_cols = NULL) {
   if (!is.null(expected_cols)) {
     expect_equal(ncol(data), expected_cols)
   }
-
-  invisible()
 }

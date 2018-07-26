@@ -1,29 +1,35 @@
-'...': The initial columns correspond to the grouping factors on the right hand side
-  of the model formula.
-acf: calculated correlation
-adj.p.value: P-value adjusted for multiple comparisons
+# general notes:
+# - use singular rather than plural (i.e. autocorrelation, not autocorrelations)
+# - use num_* rather than n_*
+# - try to avoid single letter column names in favor of something more informative
+
+adjusted.p.value: P-value adjusted for multiple comparisons
 alternative: Alternative hypothesis (character).
-autocorrelation: TODO
+autocorrelation: Autocorrelation of sequence.
+  do_not_use:
+    - acf
 bias: Bias of the statistic.
-ci.width: Expected width of confidence interval.
-class: The class under consideration.
+ci.width: Expected width of confidence interval. Distinct from conf.level?
+class: The class under consideration. (does this refer to code class or ...?)
 cluster: A factor describing the cluster from 1:k
 coefficient_type: TODO
 column1: Name or index of the first column being described
 column2: Name or index of the second column being described
-comp: TODO
 comparison: Levels being compared, separated by -
 component: Cluster id as a factor. For a model `k` clusters, these will be `as.factor(1:k)`,
   or `as.factor(0:k)` if there's a noise term.
+  do_not_use:
+    - comp
 conf.high: The upper end of a confidence interval for the term under consideration.
-  Included only if `conf.int = TRUE`.
+  do_not_use:
+    - upper
 conf.low: The lower end of a confidence interval for the term under consideration.
-  Included only if `conf.int = TRUE`.
+  do_not_use:
+    - lower
 cumulative: Cumulative percentage of variation explained.
 cutoff: The cutoff used for classification. Observations with predicted probabilities
   above this value were assigned class 1, and observations with predicted probabilities
   below this value were assigned class 0.
-cutoffs: TODO
 denominator: The denominator, which is tau=kendall_score/denominator.
 dev.ratio: fraction of null deviance explained at each value of lambda
 df: Degrees of freedom used by this term in the model.
@@ -36,8 +42,11 @@ exp: weighted expected number of events in each group
 expected: expected number of events (present only if a `ratetable` term is present)  If
   the `data.frame = TRUE` argument is supplied to `pyears`, this is simply the contents
   of `x$data`.
-flX: Factor loading of term on factor X. There will be as many columns of this format
+factor_loading: Factor loading of term on factor X. There will be as many columns of this format
   as there were factors fitted.
+  do_not_use:
+    - fl1
+    - fl2
 fpr: The false positive rate at the given cutoff.
 GCV: generalized cross validation value for this lambda
 group: The group (if specified) in the lavaan model

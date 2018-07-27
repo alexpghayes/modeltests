@@ -16,6 +16,9 @@ data_only_aug <- function(model, data) {
 }
 
 consistent_aug <- function(model, data = NULL, newdata = NULL) {
+  if (is.null(data) && is.null(newdata))
+    stop("Must specify either `data` or `newdata` argument.", call. = FALSE)
+
   as_tibble(base_aug(data, newdata))
 }
 

@@ -1,6 +1,6 @@
 #' @keywords internal
 #' @import testthat
-#' @importFrom utils head
+#' @importFrom utils head tail
 #' @importFrom modelgenerics augment glance tidy
 "_PACKAGE"
 

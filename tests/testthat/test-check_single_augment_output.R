@@ -26,7 +26,7 @@ test_that("strict = FALSE", {
 
   expect_error(
     check_single_augment_output(au_missing_col, iris, strict = FALSE),
-    "Original columns must be presented in augmented data."
+    "Original columns must be present in augmented data."
   )
 
   expect_error(

@@ -22,6 +22,11 @@ all_equal_list <- function(x) {
 has_rownames <- function(df) {
   if (tibble::is_tibble(df))
     return(FALSE)
-
   any(rownames(df) != as.character(1:nrow(df)))
+}
+
+all.equal.tbl_df <- function(target, current, ...) {
+  df_target <- as.data.frame(target)
+  df_current <- as.data.frame(current)
+  isTRUE(all.equal(df_target, df_current))
 }

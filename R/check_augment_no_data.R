@@ -44,7 +44,7 @@ check_augment_no_data <- function(aug, model, passed_data, strict = TRUE) {
       )
     )
   } else {
-    orig_cols <- colnames(passed_data)
+    orig_cols <- acceptable_augment_colnames(model, passed_data)
     aug_cols <- colnames(au)
     new_cols <- setdiff(aug_cols, orig_cols)
 

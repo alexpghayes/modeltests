@@ -19,7 +19,7 @@
 #'
 check_single_augment_output <- function(au, passed_data, strict = TRUE) {
 
-  orig_cols <- colnames(passed_data)
+  orig_cols <- acceptable_augment_colnames(model, passed_data)
   aug_cols <- colnames(au)
   new_cols <- setdiff(aug_cols, orig_cols)
 

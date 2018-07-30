@@ -7,8 +7,6 @@
 #'   `aug` should try to reconstruct when neither `data` nor `newdata` is
 #'   specified.
 #'
-#' @export
-#'
 #' @description Test when `strict = FALSE`:
 #'
 #' - None

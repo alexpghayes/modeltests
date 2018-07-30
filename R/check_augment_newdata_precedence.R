@@ -2,6 +2,7 @@
 #'
 #' @template boilerplate
 #' @inheritParams check_augment_data_specification
+#' @export
 #'
 check_augment_newdata_precedence <- function(aug, model, data, strict = TRUE) {
 
@@ -17,7 +18,6 @@ check_augment_newdata_precedence <- function(aug, model, data, strict = TRUE) {
     )
 
   newdata <- tail(data, 5)
-  data <- head(data, 5)
 
   au_data <- aug(model, data = data)
   au_newdata <- aug(model, newdata = newdata)

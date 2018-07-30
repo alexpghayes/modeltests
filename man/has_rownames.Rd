@@ -10,9 +10,10 @@ has_rownames(df)
 \item{df}{A data frame}
 }
 \value{
-Logical indicating if \code{df} has rownames. If \code{df} is a tibble, returns \code{FALSE}.
-If \code{df} is a data.frame, return \code{FALSE} if the rownames are simply row numbers. If the
-rownames are anything other than the return row numbers, returns \code{TRUE}.
+Logical indicating if \code{df} has rownames. If \code{df} is a tibble,
+returns \code{FALSE}. If \code{df} is a data.frame, return \code{FALSE} if the rownames
+are simply row numbers. If the rownames are anything other than the
+return row numbers, returns \code{TRUE}.
 }
 \description{
 Check whether or not a data-frame-like object has rownames

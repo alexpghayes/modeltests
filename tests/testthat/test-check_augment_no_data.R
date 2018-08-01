@@ -68,16 +68,6 @@ test_that("strict = TRUE", {
     "Augmented data does not have same number of rows as original data."
   )
 
-  expect_warning(
-    check_augment_no_data(
-      aug = missing_cols,
-      model = NULL,
-      passed_data = iris,
-      strict = TRUE
-    ),
-    "Not all original columns in augmented data."
-  )
-
   iris2 <- iris
   rownames(iris2) <- paste0("obs", 1:nrow(iris2))
 
@@ -89,7 +79,7 @@ test_that("strict = TRUE", {
       strict = TRUE
     ),
     paste0(
-      "Rownames presented in original dataset but no `.rownames` column",
+      "Rownames presented in original dataset but no `.rownames` column ",
       "present in augmented data."
     )
   )

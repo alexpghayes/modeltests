@@ -1,4 +1,5 @@
 library(tidyverse)
+library(yaml)
 
 methods <- c("tidy", "glance", "augment")
 

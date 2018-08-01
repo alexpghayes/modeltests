@@ -54,15 +54,18 @@ check_augment_no_data <- function(aug, model, passed_data, strict = TRUE) {
         call. = FALSE
       )
 
-    if (!all(orig_cols %in% aug_cols))
-      warning("Not all original columns in augmented data.", call. = FALSE)
+
+    # overly verbose: warns whenever not all columns in a dataframe are used
+    # in the example
+    # if (!all(orig_cols %in% aug_cols))
+    #   warning("Not all original columns in augmented data.", call. = FALSE)
 
     if (has_rownames(passed_data)) {
       row_nm <- rownames(passed_data)
-      if (all(row_nm != seq_along(row_nm))) {
+      if (all(row_nm != au$.rownames)) {
         warning(
           paste0(
-            "Rownames presented in original dataset but no `.rownames` column",
+            "Rownames presented in original dataset but no `.rownames` column ",
             "present in augmented data."
           )
         )

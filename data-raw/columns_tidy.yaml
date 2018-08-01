@@ -19,11 +19,13 @@ conf.high: The upper end of a confidence interval for the term under considerati
   Included only if `conf.int = TRUE`.
 conf.low: The lower end of a confidence interval for the term under consideration.
   Included only if `conf.int = TRUE`.
+contrast: Levels being compared.
 cumulative: Cumulative percentage of variation explained.
 cutoff: The cutoff used for classification. Observations with predicted probabilities
   above this value were assigned class 1, and observations with predicted probabilities
   below this value were assigned class 0.
 cutoffs: TODO
+den.df: TODO
 denominator: The denominator, which is tau=kendall_score/denominator.
 dev.ratio: fraction of null deviance explained at each value of lambda
 df: Degrees of freedom used by this term in the model.

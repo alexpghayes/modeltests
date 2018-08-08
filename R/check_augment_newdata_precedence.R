@@ -11,9 +11,9 @@ check_augment_newdata_precedence <- function(aug, model, data, strict = TRUE) {
   if (!strict)
     return(invisible())
 
-  if (nrow(data) < 10)
+  if (nrow(data) < 6)
     stop(
-      "Data for checking newdata predence must have at least 10 rows.",
+      "Data for checking newdata predence must have at least 6 rows.",
       call. = FALSE
     )
 

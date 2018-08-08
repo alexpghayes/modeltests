@@ -32,11 +32,19 @@ all_equal_list <- function(x) {
 #' acceptable_augment_colnames(fit, mtcars)
 #'
 acceptable_augment_colnames <- function(object, passed_data) {
+  UseMethod("acceptable_augment_colnames")
+}
+
+acceptable_augment_colnames.default <- function(object, passed_data) {
   safe_mf <- purrr::possibly(model.frame, NULL)
   mf <- safe_mf(object)
   mf_cols <- if (is.data.frame(mf)) colnames(mf) else character(0)
-  mf_cols <- make.names(mf_cols)  # is this too strict?
-  c(mf_cols, colnames(passed_data))
+  # TODO: test that all of the following are okay
+  c(mf_cols, make.names(mf_cols), colnames(passed_data))
+}
+
+acceptable_augment_colnames.poLCA <- function(object, passed_data) {
+  c(colnames(object$x), colnames(object$y))
 }
 
 #' Check whether or not a data-frame-like object has rownames

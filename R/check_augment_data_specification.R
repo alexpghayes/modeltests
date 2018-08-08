@@ -53,7 +53,7 @@ check_augment_data_specification <- function(
   au_row_nm <- aug(model, data = dl$row_nm, newdata = new_dl$row_nm)
 
   au_list <- list(au_tibble, au_no_row, au_row_nm)
-  purrr::walk2(au_list, passed_data, check_single_augment_output)
+  purrr::walk2(au_list, passed_data, check_single_augment_output, model = model)
 
   expect_equal(au_tibble, au_no_row,
                info = "Augmented data must be the same for tibble and data frame input."

@@ -57,30 +57,4 @@ test_that("strict = TRUE", {
       "  Must specify either `data` or `newdata` argument."
     )
   )
-
-  expect_warning(
-    check_augment_no_data(
-      aug = missing_rows,
-      model = NULL,
-      passed_data = iris,
-      strict = TRUE
-    ),
-    "Augmented data does not have same number of rows as original data."
-  )
-
-  iris2 <- iris
-  rownames(iris2) <- paste0("obs", 1:nrow(iris2))
-
-  expect_warning(
-    check_augment_no_data(
-      aug = missing_rownames,
-      model = NULL,
-      passed_data = iris2,
-      strict = TRUE
-    ),
-    paste0(
-      "Rownames presented in original dataset but no `.rownames` column ",
-      "present in augmented data."
-    )
-  )
 })

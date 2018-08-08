@@ -36,40 +36,16 @@ check_augment_no_data <- function(aug, model, passed_data, strict = TRUE) {
       aug(model),
       "Must specify either `data` or `newdata` argument.",
       info = paste0(
-        "Augment failed but did not give an informative error message.\n",
+        "\n\n\nAugment failed but did not give an informative error message.\n",
         "Please use the following error message:\n",
         "  Must specify either `data` or `newdata` argument."
       )
     )
   } else {
-    orig_cols <- acceptable_augment_colnames(model, passed_data)
+    ok_cols <- acceptable_augment_colnames(model, passed_data)
     aug_cols <- colnames(au)
-    new_cols <- setdiff(aug_cols, orig_cols)
+    new_cols <- setdiff(aug_cols, ok_cols)
 
     check_tibble(au, method = "augment", columns = new_cols)
-
-    if (nrow(au) != nrow(passed_data))
-      warning(
-        "Augmented data does not have same number of rows as original data.",
-        call. = FALSE
-      )
-
-
-    # overly verbose: warns whenever not all columns in a dataframe are used
-    # in the example
-    # if (!all(orig_cols %in% aug_cols))
-    #   warning("Not all original columns in augmented data.", call. = FALSE)
-
-    if (has_rownames(passed_data)) {
-      row_nm <- rownames(passed_data)
-      if (all(row_nm != au$.rownames)) {
-        warning(
-          paste0(
-            "Rownames presented in original dataset but no `.rownames` column ",
-            "present in augmented data."
-          )
-        )
-      }
-    }
   }
 }

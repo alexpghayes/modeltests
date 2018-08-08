@@ -1,26 +1,24 @@
 adj.r.squared: Adjusted R squared statistic, which is like the R squared statistic
   except taking degrees of freedom into account.
-agfi: Adjusted goodness of fit
-aic: Akaike information criterion
+agfi: Adjusted goodness of fit.
 AIC: Akaike's Information Criterion for the model.
-alternative: TODO
-autocorrelation: TODO
-betweenss: The total between-cluster sum of squares
-bic: Bayesian information criterion
+alternative: The alternative hypothesis. Usually character.
+autocorrelation: Autocorrelation.
+betweenss: The total between-cluster sum of squares.
 BIC: Bayesian Information Criterion for the model.
-cfi: Comparative fit index
-chi.squared: The Pearson Chi-Square goodness of fit statistic for multiway tables
-chisq: Model chi squared
-conf.high: upper end of confidence interval on median
-conf.low: lower end of confidence interval on median
+cfi: Comparative fit index.
+chi.squared: The Pearson Chi-Square goodness of fit statistic for multiway tables.
+chisq: Model chi squared.
+conf.high: Upper bound on confidence interval.
+conf.low: Lower bound on confidence interval.
 converged: Logical indicating if the model fitting procedure was succesful and converged.
-convergence: convergence code representing the error state
+convergence: Convergence code.
 crit: minimized criterion
 cv.crit: cross-validation score
 deviance: Deviance of the model.
 df: Degrees of freedom used by the model.
-df.null: Needs custom info.
-df.residual: Residual degrees of freedom for the model.
+df.null: Degrees of freedom used by the null model.
+df.residual: Residual degrees of freedom.
 dw.original: Durbin-Watson statistic of original fit
 dw.transformed: Durbin-Watson statistic of transformed fit
 edf: The effective degrees of freedom
@@ -54,12 +52,12 @@ MCMC.burnin: The burn-in period of the MCMC estimation
 MCMC.interval: The interval used during MCMC estimation
 MCMC.samplesize: The sample size used during MCMC estimation
 median: median survival
-method: Needs custom info.
+method: Which method was used.
 min.harzard: Minimal estimated hazard
 min.time: The minimum observed event or censoring time
 missing_method: Method for eliminating missing data.
 model: A character string denoting the model at which the optimal BIC occurs
-'n': Needs custom info.
+'n': The number of TODO.
 n.factors: The number of fitted factors
 n.max: Maximum number of subjects at risk.
 n.start: Initial number of subjects at risk.
@@ -74,7 +72,7 @@ null.deviance: Deviance of the null model.
 nulldev: null deviance
 number.interaction: Number of interactions
 offtable: total number of person-years off table
-p.value: Needs custom info.
+p.value: P-value corresponding to the test statistic.
 p.value.original: P-value of original Durbin-Watson statistic
 p.value.Sargan: P-value for Sargan test.
 p.value.transformed: P-value of autocorrelation after transformation
@@ -84,7 +82,8 @@ parameter: Parameter field in the htest, typically degrees of freedom
 pen.crit: penalized criterion
 power: Power achieved by the analysis.
 power.reached: Whether the desired power was reached.
-pseudo.r.squared: TODO
+pseudo.r.squared: Like the R squared statistic, but for situations when the R squared
+  statistic isn't defined.
 r.squared: R squared statistic, or the percent of variation explained by the model.
   Also known as the coefficient of determination.
 records: number of observations
@@ -101,7 +100,7 @@ sigma2_j: the square root of the estimated residual variance for the j-th longit
   process
 spar: smoothing parameter
 srmr: Standardised root mean residual
-statistic: Needs custom info.
+statistic: Test statistic.
 statistic.Sargan: Statistic for Sargan test.
 statistic.weakinst: Statistic for Wu-Hausman test.
 statistic.Wu.Hausman: Statistic for Wu-Hausman test.

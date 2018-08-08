@@ -17,11 +17,12 @@
 #' - If `passed_data` has rownames other than simple row numbers (i.e. `paste(1:5)`),
 #'   `au` contains a column called `.rownames`.
 #'
-check_single_augment_output <- function(au, passed_data, strict = TRUE) {
+check_single_augment_output <- function(
+  au, passed_data, model = NULL, strict = TRUE) {
 
-  orig_cols <- acceptable_augment_colnames(model, passed_data)
+  ok_cols <- acceptable_augment_colnames(model, passed_data)
   aug_cols <- colnames(au)
-  new_cols <- setdiff(aug_cols, orig_cols)
+  new_cols <- setdiff(aug_cols, ok_cols)
 
   check_tibble(au, method = "augment", columns = new_cols)
 
@@ -30,7 +31,7 @@ check_single_augment_output <- function(au, passed_data, strict = TRUE) {
   )
 
   expect_true(
-    all(orig_cols %in% aug_cols),
+    all(colnames(passed_data) %in% aug_cols),
     info = "Original columns must be present in augmented data."
   )
 

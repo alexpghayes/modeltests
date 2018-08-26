@@ -6,8 +6,8 @@
 \alias{modeltests-package}
 \title{modeltests: Testing Infrastructure for Broom Model Generics}
 \description{
-Provides a number of testthat tests that can be used to verify that tidy(), glance()
-    and augment() methods meet specification.
+Provides a number of testthat tests that can be used to verify that
+    tidy(), glance() and augment() methods meet specification.
 }
 \seealso{
 Useful links:

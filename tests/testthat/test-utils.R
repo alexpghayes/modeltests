@@ -17,8 +17,5 @@ test_that("acceptable_augment_colnames", {
 
   expect_true(all(colnames(mtcars) %in% ok_cols))
   expect_true("log.mpg." %in% ok_cols)
-
-  # require that column names must be valid without quoting
-  # this may turn out to be too strict
-  expect_false("log(mpg)" %in% ok_cols)
+  expect_true("log(mpg)" %in% ok_cols)
 })

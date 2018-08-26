@@ -4,8 +4,8 @@ Title: Testing Infrastructure for Broom Model Generics
 Version: 0.1.0
 Author: Alex Hayes
 Maintainer: Alex Hayes <alexpghayes@gmail>
-Description: Provides a number of testthat tests that can be used to verify that tidy(), glance()
-    and augment() methods meet specification.
+Description: Provides a number of testthat tests that can be used to verify that
+    tidy(), glance() and augment() methods meet specification.
 License: MIT + file LICENSE
 URL: https://github.com/alexpghayes/modeltests
 BugReports: https://github.com/alexpghayes/modeltests/issues
@@ -13,14 +13,14 @@ Depends:
     R (>= 3.1)
 Imports: 
     dplyr (>= 0.7.6),
-    modelgenerics,
+    generics,
     purrr (>= 0.2.5),
     testthat (>= 2.0.0),
     tibble (>= 1.4.2)
 Suggests: 
     covr
 Remotes: 
-    topepo/modelgenerics
+    r-lib/generics
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

@@ -1,7 +1,7 @@
 #' @keywords internal
 #' @import testthat
 #' @importFrom utils head tail
-#' @importFrom modelgenerics augment glance tidy
+#' @importFrom generics augment glance tidy
 "_PACKAGE"
 
 utils::globalVariables(
@@ -13,3 +13,5 @@ utils::globalVariables(
     "method"
   )
 )
+
+

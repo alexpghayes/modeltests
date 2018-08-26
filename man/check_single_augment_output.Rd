@@ -4,7 +4,8 @@
 \alias{check_single_augment_output}
 \title{Check the output of an augment method}
 \usage{
-check_single_augment_output(au, passed_data, strict = TRUE)
+check_single_augment_output(au, passed_data, model = NULL,
+  strict = TRUE)
 }
 \arguments{
 \item{au}{Output from a call to \code{\link[=augment]{augment()}}.}

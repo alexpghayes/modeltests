@@ -3,7 +3,9 @@
 #' Driver function that calls lots of other tests
 #' # should call twice: once with training data, once with test data
 # test data should still have the outcome present in the data
-#'
+
+#' @importFrom dplyr select mutate one_of
+#' @export
 check_predict <- function(
   predict_method,
   object,
@@ -31,13 +33,12 @@ check_predict <- function(
     info = "Must specify data via `new_data` argument."
   )
 
-  ## TODO: test for each allowed `type`?
-
   if (is.null(types)) {
     arglist <- as.list(formals(predict_method))
-    types <- arglist$type
+    types <- eval(arglist$type)
   }
 
+  no_outcome <- select(new_data, -one_of(outcome))
   no_outcome <- select(new_data, -one_of(outcome))
 
   extra_cols <- mutate(
@@ -48,7 +49,7 @@ check_predict <- function(
     SnaKeCaseISbaDfoRtHeSOul = rnorm(n)
   )
 
-  one_row <- slice(new_data, 1)
+  one_row <- new_data[1, ]
 
   expect_silent({
     ## outcome not required for new_data
@@ -69,19 +70,29 @@ check_predict <- function(
       no_outcome_preds <- predict_method(object, no_outcome, type = type)
     })
 
-    expect_silent({
-      extra_cols_preds <- predict_method(object, extra_cols, type = type)
-    })
-
     check_predict_output(
       predictions = no_outcome_preds,
       passed_data = no_outcome,
       type = type
     )
 
+    expect_silent({
+      extra_cols_preds <- predict_method(object, extra_cols, type = type)
+    })
+
     check_predict_output(
       predictions = extra_cols_preds,
       passed_data = extra_cols,
+      type = type
+    )
+
+    expect_silent({
+      one_row_preds <- predict_method(object, one_row, type = type)
+    })
+
+    check_predict_output(
+      predictions = one_row_preds,
+      passed_data = one_row,
       type = type
     )
   }

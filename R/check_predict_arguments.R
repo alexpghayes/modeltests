@@ -17,6 +17,7 @@
 #'
 check_predict_arguments <- function(predict_method) {
 
+
   arglist <- as.list(formals(predict_method))
   args <- names(arglist)
   func_name <- as.character(substitute(predict_method))
@@ -55,11 +56,6 @@ check_predict_arguments <- function(predict_method) {
 
   ### default argument values
 
-  expect_null(
-    arglist$newdata,
-    info = "`newdata` argument must default to `NULL`."
-  )
-
   allowed_type_values <- c(
     "response",
     "class",
@@ -75,7 +71,7 @@ check_predict_arguments <- function(predict_method) {
     # NOTE: ideally the `type = c("response", "raw", "link")` is the signature
     # i.e. a vector rather than a single value, and then the predict method
     # should use match.arg right after that
-    all(arglist$type %in% allowed_type_values),
+    all(eval(arglist$type) %in% allowed_type_values),
     info = paste0(
       "Default argument to `type` is not a subset of:",
       paste(allowed_type_values, sep = "\n")
@@ -85,7 +81,7 @@ check_predict_arguments <- function(predict_method) {
   ### missing default values
 
   no_defaults <- names(arglist[purrr::map_lgl(arglist, is.name)])
-  no_defaults <- setdiff(no_defaults, c("object", "..."))
+  no_defaults <- setdiff(no_defaults, c("object", "new_data", "..."))
 
   expect_true(
     length(no_defaults) == 0,

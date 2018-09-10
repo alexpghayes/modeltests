@@ -29,11 +29,20 @@ check_predict_arguments <- function(predict_method) {
   )
 
   expect_true(
-    "newdata" %in% args,
-    info = "Predict methods must accept data via a `newdata` argument."
+    "new_data" %in% args,
+    info = "Predict methods must accept data via a `new_data` argument."
   )
 
-  allowed_args <- c("object", "newdata", "type", "...")
+  allowed_args <- c(
+    "object",
+    "new_data",
+    "type",
+    "se_fit",
+    "level",
+    "threshold",
+    "..."
+  )
+
   not_allowed <- setdiff(args, allowed_args)
 
   expect_true(

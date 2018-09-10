@@ -1,68 +1,80 @@
-#' Check the output of a predict method
+
+#' Title
 #'
-check_predict_output <- function(predictions, passed_data, interval = TRUE,
-                                 std_error = TRUE, fancy = FALSE) {
+#' @param predictions TODO
+#' @param passed_data TODO
+#' @param type TODO
+#' @param se_fit TODOS
+#'
+#' @return
+#' @export
+#'
+check_predict_output <- function(
+  predictions,
+  passed_data,
+  type) {
 
+  ## what should be in the returned prediction tibble
 
-
-  ## pass outcomes down to this?
-
-  if (fancy) {
-
-    .pred_col <- predictions$.pred
-    exists <- !is.null(.pred_col)
-
-    expect_true(
-      exists,
-      "A `.pred` column must be present in predictions when `fancy = TRUE`."
-    )
-
-    if (exists)
-      expect_s3_class(.pred_col, "list")
-
-    return(invisible())
-  }
-
-  pred_cols <- colnames(predictions)
   passed_cols <- colnames(passed_data)
+  pred_cols <- colnames(predictions)
+  pred_classes <- sapply(predictions, class)
 
   expect_false(
     any(passed_cols %in% pred_cols),
-    info = "Columns from `newdata` must not appear in prediction tibble."
+    info = "Columns from `new_data` must not appear in prediction tibble."
   )
 
   expect_equal(
     nrow(predictions), nrow(passed_data),
-    info = "Prediction tibble must have same number of rows as `newdata`."
+    info = "Prediction tibble must have same number of rows as `new_data`."
   )
 
-  ## type checking
+  ## column presence
 
-  if (".pred" %in% pred_cols) {
+  expect_.pred_column <- c("response", "class", "link", "conf_int", "pred_int")
+  expect_.pred_level_columns <- "prob"
+  expect_.pred_interval_cols <- c("conf_int", "pred_int")
 
-  }
+  if (type %in% expect_.pred_column)
+    expect_true(".pred" %in% pred_cols)
 
-  ## check that
+  if (type %in% expect_.pred_level_columns)
+    expect_true(all(stringr::str_detect(pred_cols, ".pred_")))
 
-  ## same number of rows
+  if (type %in% expect_.pred_interval_cols)
+    expect_true(all(c(".pred_lower", ".pred_upper") %in% pred_cols))
 
-  ## name-column consistency
-  # - univariate numeric predictions in .pred
-  # - multivariate numeric predictions in .pred_{outcome name}
-  # - class predictions (factor) in .pred_class
-  # - class probabilities (numeric) in .pred_{class_level}
-  #    - these should add up to one
+  ## column type
+
+  expect_numeric <- c("response", "prob", "link", "conf_int", "pred_int")
+  expect_factor <- "class"
+
+  if (type %in% expect_numeric)
+    expect_true(all(pred_classes == "numeric"))
+
+  if (type %in% expect_factor)
+    expect_true(all(pred_classes == "factor"))
 
 
-  # how is uncertainty is class probabilities
+  ## check for presence of interval attributes
+  if (type == "conf_int")
+    expect_equal(attr(predictions, "interval"), "confidence")
 
-  if (interval) {
-    ## expect numeric columns .pred_lower and .pred_upper
+  if (type == "pred_int")
+    expect_equal(attr(predictions, "interval"), "prediction")
 
-    ## TODO: intervals / uncertainty for class probabilities
-  }
+  if (type %in% c("conf_int", "pred_int"))
+    expect_false(is.null(attr(predictions, "level")))
+
+  ## class probabilities must add to one
+  if (type == "class")
+    expect_equivalent(rowSums(predictions), 1)
+
+  ## standard error column should be present
 
   if (std_error) {
-    ## expect numeric column .
+    expect_true(".pred_str_error" %in% pred_cols)
+    expect_true(all(pred_class == "numeric"))
   }
 }

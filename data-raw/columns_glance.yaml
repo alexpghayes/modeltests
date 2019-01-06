@@ -2,6 +2,7 @@ adj.r.squared: Adjusted R squared statistic, which is like the R squared statist
   except taking degrees of freedom into account.
 agfi: Adjusted goodness of fit.
 AIC: Akaike's Information Criterion for the model.
+AICc: Small sample corrected Akaike's Information Criterion for the model.
 alternative: The alternative hypothesis. Usually character.
 autocorrelation: Autocorrelation.
 betweenss: The total between-cluster sum of squares.

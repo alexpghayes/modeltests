@@ -53,7 +53,7 @@ n.censor: number of censored events
 n.event: number of events at time t
 n.risk: Number of individuals at risk at time zero.
 num.df: Degrees of freedom
-nzero: Number of coefficients that are exactly zero for given lambda.
+nzero: Number of non-zero coefficients for the given lambda.
 obs: weighted observed number of events in each group
 op: The operator in the model syntax (e.g. `~~` for covariances, or `~` for regression
   parameters)
@@ -85,6 +85,7 @@ std.lv: Standardized estimates based on the variances of the (continuous) latent
   only
 std.nox: Standardized estimates based on both the variances of both (continuous) observed
   and latent variables, but not the variances of exogenous covariates.
+std_estimate: The standardized regression coefficients
 step: which step of lambda choices was used
 strata: strata if stratified survfit object inputted
 stratum: The error stratum

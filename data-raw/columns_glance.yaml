@@ -118,4 +118,3 @@ total.variance: Total cumulative proportion of variance accounted for by all fac
 totss: The total sum of squares
 tot.withinss: The total within-cluster sum of squares
 value: minimized or maximized output value
-i

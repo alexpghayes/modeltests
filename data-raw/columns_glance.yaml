@@ -3,6 +3,7 @@ adj.r.squared: Adjusted R squared statistic, which is like the R squared statist
 agfi: Adjusted goodness of fit.
 AIC: Akaike's Information Criterion for the model.
 AICc: Small sample corrected Akaike's Information Criterion for the model.
+alpha: Estimated correlation parameter for geepack::geeglm.
 alternative: The alternative hypothesis. Usually character.
 autocorrelation: Autocorrelation.
 betweenss: The total between-cluster sum of squares.
@@ -28,6 +29,7 @@ events: number of events
 finTol: the achieved convergence tolerance
 function.count: number of calls to `fn`
 G: The optimal number of mixture components
+gamma: Estimated scale parameter for geepack::geeglm.
 gradient.count: number of calls to `gr`
 g.squared: The likelihood ratio/deviance statistic
 H: H statistic for computing confidence interval of major axis slope
@@ -46,6 +48,7 @@ lambdaGCV: choice of lambda that minimizes GCV
 lambda.min: The value of the penalization parameter lambda that achieved minimum loss
   as estimated by cross validation.
 logLik: The log-likelihood of the model. [stats::logLik()] may be a useful reference.
+max_cluster_size: Max number of elements in clusters.
 max.hazard: Maximal estimated hazard
 maxit: Number of iterations performed.
 max.time: The maximum observed event or censoring time
@@ -59,6 +62,7 @@ min.time: The minimum observed event or censoring time
 missing_method: Method for eliminating missing data.
 model: A character string denoting the model at which the optimal BIC occurs
 'n': The number of TODO.
+n_clusters: Number of clusters.
 nevent: number of events
 nexcluded: Number of excluded observations
 n.factors: The number of fitted factors
@@ -114,3 +118,4 @@ total.variance: Total cumulative proportion of variance accounted for by all fac
 totss: The total sum of squares
 tot.withinss: The total within-cluster sum of squares
 value: minimized or maximized output value
+i

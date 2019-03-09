@@ -16,11 +16,11 @@
 .resid: The difference between fitted and observed values.
 .resid_j_0: Population-level residuals for the j-th longitudinal process.
 .resid_j_1: Individual-level residuals for the j-th longitudinal process.
-.rownames: Rownames from the original data, if present.
 .row.prop: Row proportion (2 dimensions table only).
+.rownames: Rownames from the original data, if present.
+.se.fit: Standard errors of fitted values.
 .seasadj: The seasonally adjusted (or *deseasonalised*) series.
 .seasonal: The seasonal component of the decomposition.
-.se.fit: Standard errors of fitted values.
 .sigma: Estimated residual standard deviation when corresponding observation is dropped
   from model.
 .std.resid: Standardised residuals.

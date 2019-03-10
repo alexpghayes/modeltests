@@ -5,6 +5,7 @@ AIC: Akaike's Information Criterion for the model.
 AICc: Small sample corrected Akaike's Information Criterion for the model.
 alternative: The alternative hypothesis. Usually character.
 autocorrelation: Autocorrelation.
+avg.silhouette.width: The average silhouette width for the dataset
 betweenss: The total between-cluster sum of squares.
 BIC: Bayesian Information Criterion for the model.
 cfi: Comparative fit index.

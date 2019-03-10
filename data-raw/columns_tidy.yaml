@@ -6,7 +6,7 @@ bias: Bias of the statistic.
 ci.width: Expected width of confidence interval.
 class: The class under consideration.
 cluster: A factor describing the cluster from 1:k
-coefficient_type: Type of coefficient.
+coef.type: Type of coefficient.
 column1: Name or index of the first column being described
 column2: Name or index of the second column being described
 comp: Comparison? Component? TODO

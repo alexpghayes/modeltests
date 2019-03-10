@@ -14,6 +14,7 @@ ess: asdf
 estimate.method: asdf
 exponentiate: asdf
 fe: asdf
+instruments: asdf
 intervals: asdf
 matrix: asdf
 na.rm: asdf

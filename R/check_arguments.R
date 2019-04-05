@@ -10,6 +10,10 @@
 #' Tests when `strict = TRUE`:
 #'
 #' - `tidy_method` has a `conf.int` argument if it has a `conf.level` argument.
+#' - `tidy_method` has a `conf.level` argument if it has a `conf.int` argument.
+#' - `conf.int` defaults to `FALSE` when present.
+#' - `conf.level` defaults to `0.95`` when present.
+#' - `exponentiate` defaults to `FALSE` when present.
 #' - All arguments to `tidy_method` are listed in the [argument_glossary].
 #'
 #' @seealso [testthat], [testthat::expect_true()]
@@ -51,6 +55,13 @@ check_arguments <- function(tidy_method, strict = TRUE) {
     expect_true(
       "conf.level" %in% args,
       info = "Tidiers with `conf.int` argument must have `conf.level` argument."
+    )
+  }
+
+  if ("exponentiate" %in% args) {
+    expect_false(
+      arglist$exponentiate,
+      info = "Argument `exponentiate` must default to `FALSE`."
     )
   }
 

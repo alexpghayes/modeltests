@@ -24,9 +24,3 @@ includes:
 \code{\link[stats:model.frame]{stats::model.frame()}} on the object in question.
 }
 }
-\examples{
-
-fit <- lm(hp ~ log(mpg), mtcars)
-acceptable_augment_colnames(fit, mtcars)
-
-}

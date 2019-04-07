@@ -26,20 +26,14 @@ all_equal_list <- function(x) {
 #' @return A vector of colnames that are acceptable in augment output.
 #' @export
 #'
-#' @examples
-#'
-#' fit <- lm(hp ~ log(mpg), mtcars)
-#' acceptable_augment_colnames(fit, mtcars)
-#'
 acceptable_augment_colnames <- function(object, passed_data) {
   UseMethod("acceptable_augment_colnames")
 }
 
 acceptable_augment_colnames.default <- function(object, passed_data) {
-  safe_mf <- purrr::possibly(model.frame, NULL)
+  safe_mf <- purrr::possibly(stats::model.frame, NULL)
   mf <- safe_mf(object)
   mf_cols <- if (is.data.frame(mf)) colnames(mf) else character(0)
-  # TODO: test that all of the following are okay
   c(mf_cols, make.names(mf_cols), colnames(passed_data))
 }
 

@@ -27,6 +27,10 @@ Tests when \code{strict = FALSE}:
 Tests when \code{strict = TRUE}:
 \itemize{
 \item \code{tidy_method} has a \code{conf.int} argument if it has a \code{conf.level} argument.
+\item \code{tidy_method} has a \code{conf.level} argument if it has a \code{conf.int} argument.
+\item \code{conf.int} defaults to \code{FALSE} when present.
+\item \code{conf.level} defaults to `0.95`` when present.
+\item \code{exponentiate} defaults to \code{FALSE} when present.
 \item All arguments to \code{tidy_method} are listed in the \link{argument_glossary}.
 }
 }

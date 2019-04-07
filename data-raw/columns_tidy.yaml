@@ -97,7 +97,7 @@ tau: Quantile.
 term: The name of the regression term.
 time: Point in time.
 tpr: The true positive rate at the given cutoff.
-type: Either "weighted" or "unweighted"; Estimate type in meta-analysis (summary vs
+type: In Cohen's Kappa, the type of kappa statistic (weighted or unweighted); In meta-analysis, the estimate type  (summary vs
   individual study)
 uniqueness: Proportion of residual, or unexplained variance
 value: TODO. needs better documentation.

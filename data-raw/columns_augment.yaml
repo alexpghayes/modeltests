@@ -4,14 +4,20 @@
 .conf.high: Upper bound on confidence interval for fitted values.
 .conf.low: Lower bound on confidence interval for fitted values.
 .cooksd: Cooks distance.
+.cov.ratio: The covariance ratio.
+.cred.high: Upper bound on credible interval for fitted values.
+.cred.low: Lower bound on credible interval for fitted values.
+.dffits: DFFITS value.
 .expected: Expected count under the null hypothesis.
 .fitted: Fitted or predicted value.
 .fitted_j_0: Population-level fitted values for the j-th longitudinal process.
 .fitted_j_1: Individual-level fitted values for the j-th longitudinal process.
 .hat: Diagonal of the hat matrix.
+.moderator: In meta-analysis, the moderators used to calculate the predicted values.
 .observed: Observed count.
 .probability: Class probability of modal class.
 .prop: Proportion of the total.
+.qe.del: Leave-one-out residual heterogeneity test statistics.
 .remainder: The remainder, or random, component of the decomposition.
 .resid: The difference between fitted and observed values.
 .resid_j_0: Population-level residuals for the j-th longitudinal process.
@@ -25,6 +31,7 @@
   from model.
 .std.resid: Standardised residuals.
 .tau: Quantile.
+.tau.squared.del: leave-one-out tau squared estimates
 .trend: The trend component of the decomposition.
 .uncertainty: The uncertainty associated with the classification. Equal to one minus
   the model class probability.

@@ -32,8 +32,10 @@ G: The optimal number of mixture components
 g.squared: The likelihood ratio/deviance statistic
 gradient.count: number of calls to `gr`
 H: H statistic for computing confidence interval of major axis slope
+h.squared: Value of the H-Squared statistic
 hypvol: If the other model contains a noise component, the value of the hypervolume
   parameter. Otherwise `NA`.
+i.squared: Value of the I-Squared statistic
 independence: Whether the model assumed dyadic independence
 isConv: whether the fit successfully converged
 iter: Iterations of algorithm/fitting procedure completed.
@@ -53,6 +55,7 @@ maxit: Number of iterations performed.
 MCMC.burnin: The burn-in period of the MCMC estimation
 MCMC.interval: The interval used during MCMC estimation
 MCMC.samplesize: The sample size used during MCMC estimation
+measure: the measure used in the meta-analysis
 median: median survival
 method: Which method was used.
 min.harzard: Minimal estimated hazard
@@ -76,6 +79,8 @@ number.interaction: Number of interactions
 offtable: total number of person-years off table
 p.value: P-value corresponding to the test statistic.
 p.value.original: P-value of original Durbin-Watson statistic
+p.value.qe: In meta-analysis, p-value for the test of residual heterogeneity.
+p.value.qm: In meta-analysis, p-value for the omnibus test of coefficients.
 p.value.Sargan: P-value for Sargan test.
 p.value.transformed: P-value of autocorrelation after transformation
 p.value.Wu.Hausman: P-value for Wu-Hausman test.
@@ -85,6 +90,8 @@ power: Power achieved by the analysis.
 power.reached: Whether the desired power was reached.
 pseudo.r.squared: Like the R squared statistic, but for situations when the R squared
   statistic isn't defined.
+qe: In meta-analysis, test statistic for the test of residual heterogeneity.
+qm: In meta-analysis, test statistic for the omnibus test of coefficients.
 r.squared: R squared statistic, or the percent of variation explained by the model.
   Also known as the coefficient of determination.
 records: number of observations
@@ -105,6 +112,8 @@ statistic: Test statistic.
 statistic.Sargan: Statistic for Sargan test.
 statistic.Wu.Hausman: Statistic for Wu-Hausman test.
 tau: Quantile.
+tau.squared: In meta-analysis, estimated amount of residual heterogeneity.
+tau.squared.se: In meta-analysis, standard error of residual heterogeneity.
 theta: Angle between OLS lines `lm(y ~ x)` and `lm(x ~ y)`
 timepoints: number of timepoints
 tli: Tucker Lewis index

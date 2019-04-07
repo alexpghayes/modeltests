@@ -14,9 +14,11 @@ ess: asdf
 estimate.method: asdf
 exponentiate: asdf
 fe: asdf
+include_studies: In meta-analysis, should individual studies be included in the output?
 instruments: asdf
 intervals: asdf
 matrix: asdf
+measure: Measure type used in meta-analysis.
 na.rm: asdf
 object: asdf
 par_type: asdf

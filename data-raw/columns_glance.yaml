@@ -56,7 +56,7 @@ lambda.min: The value of the penalization parameter lambda that achieved minimum
   as estimated by cross validation.
 lambdaGCV: choice of lambda that minimizes GCV
 logLik: The log-likelihood of the model. [stats::logLik()] may be a useful reference.
-max_cluster_size: Max number of elements in clusters.
+max.cluster.size: Max number of elements in clusters.
 max.hazard: Maximal estimated hazard
 max.time: The maximum observed event or censoring time
 maxit: Number of iterations performed.
@@ -68,7 +68,7 @@ median: median survival
 method: Which method was used.
 min.harzard: Minimal estimated hazard
 min.time: The minimum observed event or censoring time
-missing_method: Method for eliminating missing data.
+missing.method: Method for eliminating missing data.
 model: A character string denoting the model at which the optimal BIC occurs
 'n': The number of TODO.
 n.clusters: Number of clusters.

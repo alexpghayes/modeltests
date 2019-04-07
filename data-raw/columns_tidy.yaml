@@ -38,7 +38,7 @@ group2: Second group being compared
 index: Index (i.e. date or time) for a `ts` or `zoo` object.
 item1: First item
 item2: Second item
-kendall_score: Kendall score.
+kendall.score: Kendall score.
 lag: lag values
 lambda: Value of penalty parameter lambda.
 lhs: Left hand side.
@@ -87,7 +87,7 @@ std.lv: Standardized estimates based on the variances of the (continuous) latent
   only
 std.nox: Standardized estimates based on both the variances of both (continuous) observed
   and latent variables, but not the variances of exogenous covariates.
-std_estimate: The standardized regression coefficients
+std.estimate: The standardized regression coefficients
 step: which step of lambda choices was used
 strata: strata if stratified survfit object inputted
 stratum: The error stratum
@@ -99,7 +99,7 @@ tpr: The true positive rate at the given cutoff.
 type: Either "weighted" or "unweighted"
 uniqueness: Proportion of residual, or unexplained variance
 value: TODO. needs better documentation.
-var_kendall_score: Variance of the kendall_score.
+var.kendall.score: Variance of the kendall_score.
 variable: Variable under consideration.
 variance: In case of one-dimensional and spherical models, the variance for each component,
   omitted otherwise. `NA` for noise component

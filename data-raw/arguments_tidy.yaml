@@ -14,14 +14,15 @@ ess: asdf
 estimate.method: asdf
 exponentiate: asdf
 fe: asdf
+instruments: asdf
 intervals: asdf
 matrix: asdf
 na.rm: asdf
 object: asdf
+par_type: asdf
 parameters: asdf
 parametric: asdf
 pars: asdf
-par_type: asdf
 prob: asdf
 quick: asdf
 ran_prefix: asdf

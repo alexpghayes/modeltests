@@ -6,7 +6,9 @@ tidy_no_conf_lvl <- function(x, conf.int = FALSE, ...) 1
 tidy_wrong_conf_lvl <- function(x, conf.int = FALSE, conf.level = 0.8, ...) 1
 tidy_wrong_conf_int <- function(x, conf.int = TRUE, conf.level = 0.95, ...) 1
 tidy_not_in_glossary <- function(x, other_arg = NULL, ...) 1
-tidy_correct <- function(x, conf.int = FALSE, conf.level = 0.95, conf.method = NULL, ...) 1
+tidy_exponentiates <- function(x, exponentiate = TRUE, ...) 1
+tidy_correct <- function(x, conf.int = FALSE, conf.level = 0.95,
+                         conf.method = NULL, exponentiate = FALSE, ...) 1
 
 augment_no_data <- function(x, ...) 1
 augment_wrong_newdata <- function(x, data = NULL, newdata, ...) 1
@@ -64,6 +66,11 @@ test_that("strict = TRUE", {
       "Arguments other_arg to `tidy_not_in_glossary` must be listed in",
       " the argument glossary."
     )
+  )
+
+  expect_error(
+    check_arguments(tidy_exponentiates, strict = TRUE),
+    "Argument `exponentiate` must default to `FALSE`."
   )
 
   expect_silent({

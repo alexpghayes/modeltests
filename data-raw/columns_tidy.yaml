@@ -6,7 +6,7 @@ bias: Bias of the statistic.
 ci.width: Expected width of confidence interval.
 class: The class under consideration.
 cluster: A factor describing the cluster from 1:k
-coefficient_type: Type of coefficient.
+coef.type: Type of coefficient.
 column1: Name or index of the first column being described
 column2: Name or index of the second column being described
 comp: Comparison? Component? TODO
@@ -59,12 +59,13 @@ op: The operator in the model syntax (e.g. `~~` for covariances, or `~` for regr
   parameters)
 outcome: Outcome of manifest variable
 p: True proportion.
+p.value: The two-sided p-value associated with the observed statistic.
+p.value.weakinst: P-value for weak instruments test.
 parameter: The parameter being modeled.
 PC: An integer vector indicating the principal component.
 percent: Percentage of variation explained.
 power: Power achieved for given value of n.
 proportion: The mixing proportion of each component
-p.value: The two-sided p-value associated with the observed statistic.
 pyears: person-years of exposure
 response: Which response column the coefficients correspond to (typically `Y1`, `Y2`,
   etc).
@@ -77,15 +78,16 @@ size: Number of points assigned to cluster.
 state: state if multistate survfit object inputted
 statistic: The value of a T-statistic to use in a hypothesis that the regression term
   is non-zero.
+statistic.weakinst: Statistic for Wu-Hausman test.
 std.all: Standardized estimates based on both the variances of both (continuous) observed
   and latent variables.
 std.dev: Standard deviation explained by this PC.
 std.error: The standard error of the regression term.
-std_estimate: The standardized regression coefficients
 std.lv: Standardized estimates based on the variances of the (continuous) latent variables
   only
 std.nox: Standardized estimates based on both the variances of both (continuous) observed
   and latent variables, but not the variances of exogenous covariates.
+std_estimate: The standardized regression coefficients
 step: which step of lambda choices was used
 strata: strata if stratified survfit object inputted
 stratum: The error stratum
@@ -97,10 +99,10 @@ tpr: The true positive rate at the given cutoff.
 type: Either "weighted" or "unweighted"
 uniqueness: Proportion of residual, or unexplained variance
 value: TODO. needs better documentation.
+var_kendall_score: Variance of the kendall_score.
 variable: Variable under consideration.
 variance: In case of one-dimensional and spherical models, the variance for each component,
   omitted otherwise. `NA` for noise component
-var_kendall_score: Variance of the kendall_score.
 withinss: The within-cluster sum of squares
 y.level: The response level.
 y.value: The response level

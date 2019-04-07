@@ -6,11 +6,12 @@ AICc: Small sample corrected Akaike's Information Criterion for the model.
 alpha: Estimated correlation parameter for geepack::geeglm.
 alternative: The alternative hypothesis. Usually character.
 autocorrelation: Autocorrelation.
+avg.silhouette.width: The average silhouette width for the dataset
 betweenss: The total between-cluster sum of squares.
 BIC: Bayesian Information Criterion for the model.
 cfi: Comparative fit index.
-chisq: Model chi squared.
 chi.squared: The Pearson Chi-Square goodness of fit statistic for multiway tables.
+chisq: Model chi squared.
 conf.high: Upper bound on confidence interval.
 conf.low: Lower bound on confidence interval.
 converged: Logical indicating if the model fitting procedure was succesful and converged.
@@ -32,6 +33,7 @@ G: The optimal number of mixture components
 gamma: Estimated scale parameter for geepack::geeglm.
 gradient.count: number of calls to `gr`
 g.squared: The likelihood ratio/deviance statistic
+gradient.count: number of calls to `gr`
 H: H statistic for computing confidence interval of major axis slope
 hypvol: If the other model contains a noise component, the value of the hypervolume
   parameter. Otherwise `NA`.
@@ -44,14 +46,14 @@ kLW: modified L-W estimate of the ridge constant
 lambda: choice of lambda corresponding to `spar`
 lambda.1se: The value of the penalization parameter lambda that results in the sparsest
   model while remaining within one standard error of the minimum loss.
-lambdaGCV: choice of lambda that minimizes GCV
 lambda.min: The value of the penalization parameter lambda that achieved minimum loss
   as estimated by cross validation.
+lambdaGCV: choice of lambda that minimizes GCV
 logLik: The log-likelihood of the model. [stats::logLik()] may be a useful reference.
 max_cluster_size: Max number of elements in clusters.
 max.hazard: Maximal estimated hazard
-maxit: Number of iterations performed.
 max.time: The maximum observed event or censoring time
+maxit: Number of iterations performed.
 MCMC.burnin: The burn-in period of the MCMC estimation
 MCMC.interval: The interval used during MCMC estimation
 MCMC.samplesize: The sample size used during MCMC estimation
@@ -62,33 +64,34 @@ min.time: The minimum observed event or censoring time
 missing_method: Method for eliminating missing data.
 model: A character string denoting the model at which the optimal BIC occurs
 'n': The number of TODO.
-n_clusters: Number of clusters.
+n.clusters: Number of clusters.
+n.factors: The number of fitted factors
+n.max: Maximum number of subjects at risk.
+n.start: Initial number of subjects at risk.
 nevent: number of events
 nexcluded: Number of excluded observations
-n.factors: The number of fitted factors
 ngroups: Number of groups in model
-n.max: Maximum number of subjects at risk.
 nobs: Number of observations used.
 norig: Number of observation in the original dataset
 npar: Number of parameters in the model
 npasses: total passes over the data across all lambda values
-n.start: Initial number of subjects at risk.
-nulldev: null deviance
 null.deviance: Deviance of the null model.
+nulldev: null deviance
 number.interaction: Number of interactions
 offtable: total number of person-years off table
+p.value: P-value corresponding to the test statistic.
+p.value.original: P-value of original Durbin-Watson statistic
+p.value.Sargan: P-value for Sargan test.
+p.value.transformed: P-value of autocorrelation after transformation
+p.value.Wu.Hausman: P-value for Wu-Hausman test.
 parameter: Parameter field in the htest, typically degrees of freedom
 pen.crit: penalized criterion
 power: Power achieved by the analysis.
 power.reached: Whether the desired power was reached.
 pseudo.r.squared: Like the R squared statistic, but for situations when the R squared
   statistic isn't defined.
-p.value: P-value corresponding to the test statistic.
-p.value.original: P-value of original Durbin-Watson statistic
-p.value.Sargan: P-value for Sargan test.
-p.value.transformed: P-value of autocorrelation after transformation
-p.value.weakinst: P-value for weak instruments test.
-p.value.Wu.Hausman: P-value for Wu-Hausman test.
+r.squared: R squared statistic, or the percent of variation explained by the model.
+  Also known as the coefficient of determination.
 records: number of observations
 residual.deviance: The residual deviance of the model
 rho: Spearman's rho autocorrelation
@@ -97,8 +100,6 @@ rmean.std.error: Restricted mean standard error
 rmsea: Root mean square error of approximation
 rmsea.conf.high: 95 percent upper bound on RMSEA
 rscore: rscore
-r.squared: R squared statistic, or the percent of variation explained by the model.
-  Also known as the coefficient of determination.
 score: score
 sigma: Estimated standard error of the residuals.
 sigma2_j: the square root of the estimated residual variance for the j-th longitudinal
@@ -107,14 +108,13 @@ spar: smoothing parameter
 srmr: Standardised root mean residual
 statistic: Test statistic.
 statistic.Sargan: Statistic for Sargan test.
-statistic.weakinst: Statistic for Wu-Hausman test.
 statistic.Wu.Hausman: Statistic for Wu-Hausman test.
 tau: Quantile.
 theta: Angle between OLS lines `lm(y ~ x)` and `lm(x ~ y)`
 timepoints: number of timepoints
 tli: Tucker Lewis index
+tot.withinss: The total within-cluster sum of squares
 total: total number of person-years tabulated
 total.variance: Total cumulative proportion of variance accounted for by all factors
 totss: The total sum of squares
-tot.withinss: The total within-cluster sum of squares
 value: minimized or maximized output value

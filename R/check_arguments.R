@@ -1,6 +1,7 @@
 #' Check that tidying methods use allowed argument names
 #'
 #' @param tidy_method A tidying method. For example: `glance.Arima`.
+#' @param no_data Logical. Override strict requirement that `augment` methods need `data` argument?
 #' @template boilerplate
 #'
 #' @description Tests when `strict = FALSE`:
@@ -19,7 +20,7 @@
 #' @seealso [testthat], [testthat::expect_true()]
 #' @export
 #'
-check_arguments <- function(tidy_method, strict = TRUE) {
+check_arguments <- function(tidy_method, strict = TRUE, no_data = FALSE) {
 
   if (!strict) {
     expect_true(TRUE)  # prevent skip message
@@ -72,7 +73,7 @@ check_arguments <- function(tidy_method, strict = TRUE) {
     )
   }
 
-  if (prefix == "augment") {
+  if (!no_data & prefix == "augment") {
     expect_true(
       "data" %in% args,
       info = "Augment methods must have a `data` argument."

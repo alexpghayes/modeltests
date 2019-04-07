@@ -4,13 +4,15 @@
 \alias{check_arguments}
 \title{Check that tidying methods use allowed argument names}
 \usage{
-check_arguments(tidy_method, strict = TRUE)
+check_arguments(tidy_method, strict = TRUE, no_data = FALSE)
 }
 \arguments{
 \item{tidy_method}{A tidying method. For example: \code{glance.Arima}.}
 
 \item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
 to \code{TRUE}.}
+
+\item{no_data}{Logical. Override strict requirement that \code{augment} methods need \code{data} argument?}
 }
 \value{
 An invisible \code{NULL}. This function should be called for side effects, not return values.
@@ -27,6 +29,10 @@ Tests when \code{strict = FALSE}:
 Tests when \code{strict = TRUE}:
 \itemize{
 \item \code{tidy_method} has a \code{conf.int} argument if it has a \code{conf.level} argument.
+\item \code{tidy_method} has a \code{conf.level} argument if it has a \code{conf.int} argument.
+\item \code{conf.int} defaults to \code{FALSE} when present.
+\item \code{conf.level} defaults to `0.95`` when present.
+\item \code{exponentiate} defaults to \code{FALSE} when present.
 \item All arguments to \code{tidy_method} are listed in the \link{argument_glossary}.
 }
 }

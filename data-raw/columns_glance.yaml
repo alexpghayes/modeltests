@@ -3,6 +3,7 @@ adj.r.squared: Adjusted R squared statistic, which is like the R squared statist
 agfi: Adjusted goodness of fit.
 AIC: Akaike's Information Criterion for the model.
 AICc: Small sample corrected Akaike's Information Criterion for the model.
+alpha: Estimated correlation parameter for geepack::geeglm.
 alternative: The alternative hypothesis. Usually character.
 autocorrelation: Autocorrelation.
 avg.silhouette.width: The average silhouette width for the dataset
@@ -29,6 +30,8 @@ events: number of events
 finTol: the achieved convergence tolerance
 function.count: number of calls to `fn`
 G: The optimal number of mixture components
+gamma: Estimated scale parameter for geepack::geeglm.
+gradient.count: number of calls to `gr`
 g.squared: The likelihood ratio/deviance statistic
 gradient.count: number of calls to `gr`
 H: H statistic for computing confidence interval of major axis slope
@@ -47,6 +50,7 @@ lambda.min: The value of the penalization parameter lambda that achieved minimum
   as estimated by cross validation.
 lambdaGCV: choice of lambda that minimizes GCV
 logLik: The log-likelihood of the model. [stats::logLik()] may be a useful reference.
+max_cluster_size: Max number of elements in clusters.
 max.hazard: Maximal estimated hazard
 max.time: The maximum observed event or censoring time
 maxit: Number of iterations performed.
@@ -60,6 +64,7 @@ min.time: The minimum observed event or censoring time
 missing_method: Method for eliminating missing data.
 model: A character string denoting the model at which the optimal BIC occurs
 'n': The number of TODO.
+n.clusters: Number of clusters.
 n.factors: The number of fitted factors
 n.max: Maximum number of subjects at risk.
 n.start: Initial number of subjects at risk.

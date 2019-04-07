@@ -11,8 +11,10 @@ BIC: Bayesian Information Criterion for the model.
 cfi: Comparative fit index.
 chi.squared: The Pearson Chi-Square goodness of fit statistic for multiway tables.
 chisq: Model chi squared.
-cochran.qe: In meta-analysis, test statistic for the Cochran's Q_e test of residual heterogeneity.
-cochran.qm: In meta-analysis, test statistic for the Cochran's Q_m omnibus test of coefficients.
+cochran.qe: In meta-analysis, test statistic for the Cochran's Q_e test of residual
+  heterogeneity.
+cochran.qm: In meta-analysis, test statistic for the Cochran's Q_m omnibus test of
+  coefficients.
 conf.high: Upper bound on confidence interval.
 conf.low: Lower bound on confidence interval.
 converged: Logical indicating if the model fitting procedure was succesful and converged.
@@ -80,9 +82,11 @@ nulldev: null deviance
 number.interaction: Number of interactions
 offtable: total number of person-years off table
 p.value: P-value corresponding to the test statistic.
+p.value.cochran.qe: In meta-analysis, p-value for the Cochran's Q_e test of residual
+  heterogeneity.
+p.value.cochran.qm: In meta-analysis, p-value for the Cochran's Q_m omnibus test of
+  coefficients.
 p.value.original: P-value of original Durbin-Watson statistic
-p.value.cochran.qe: In meta-analysis, p-value for the Cochran's Q_e test of residual heterogeneity.
-p.value.cochran.qm: In meta-analysis, p-value for the Cochran's Q_m omnibus test of coefficients.
 p.value.Sargan: P-value for Sargan test.
 p.value.transformed: P-value of autocorrelation after transformation
 p.value.Wu.Hausman: P-value for Wu-Hausman test.

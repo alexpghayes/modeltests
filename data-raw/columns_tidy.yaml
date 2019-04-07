@@ -97,8 +97,8 @@ tau: Quantile.
 term: The name of the regression term.
 time: Point in time.
 tpr: The true positive rate at the given cutoff.
-type: In Cohen's Kappa, the type of kappa statistic (weighted or unweighted); In meta-analysis, the estimate type  (summary vs
-  individual study)
+type: In Cohen's Kappa, the type of kappa statistic (weighted or unweighted); In meta-analysis,
+  the estimate type  (summary vs individual study)
 uniqueness: Proportion of residual, or unexplained variance
 value: TODO. needs better documentation.
 var_kendall_score: Variance of the kendall_score.

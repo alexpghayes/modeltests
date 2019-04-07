@@ -26,7 +26,6 @@ parameters: asdf
 parametric: asdf
 pars: asdf
 prob: asdf
-quick: asdf
 ran_prefix: asdf
 region: asdf
 return_zeros: asdf

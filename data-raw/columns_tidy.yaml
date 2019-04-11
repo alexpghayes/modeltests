@@ -91,6 +91,7 @@ std_estimate: The standardized regression coefficients
 step: which step of lambda choices was used
 strata: strata if stratified survfit object inputted
 stratum: The error stratum
+study: The estimate type (summary vs individual study)
 sumsq: Sum of squares explained by this term
 tau: Quantile.
 term: The name of the regression term.

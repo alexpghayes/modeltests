@@ -107,6 +107,8 @@ r.squared: R squared statistic, or the percent of variation explained by the mod
 records: number of observations
 residual.deviance: The residual deviance of the model
 rho: Spearman's rho autocorrelation
+rho2: McFadden's rho squared with respect to a market shares (constants-only) model.
+rho20: McFadden's rho squared with respect to an equal shares (no information) model.
 rmean: Restricted mean (see [survival::print.survfit()]).
 rmean.std.error: Restricted mean standard error
 rmsea: Root mean square error of approximation

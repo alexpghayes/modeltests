@@ -134,3 +134,4 @@ total: total number of person-years tabulated
 total.variance: Total cumulative proportion of variance accounted for by all factors
 totss: The total sum of squares
 value: minimized or maximized output value
+within.r.squared: R squared within fixed-effect groups

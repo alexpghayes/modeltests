@@ -81,7 +81,6 @@ state: state if multistate survfit object inputted
 statistic: The value of a T-statistic to use in a hypothesis that the regression term
   is non-zero.
 statistic.weakinst: Statistic for Wu-Hausman test.
-std_estimate: The standardized regression coefficients
 std.all: Standardized estimates based on both the variances of both (continuous) observed
   and latent variables.
 std.dev: Standard deviation explained by this PC.
@@ -90,6 +89,7 @@ std.lv: Standardized estimates based on the variances of the (continuous) latent
   only
 std.nox: Standardized estimates based on both the variances of both (continuous) observed
   and latent variables, but not the variances of exogenous covariates.
+std_estimate: The standardized regression coefficients
 step: which step of lambda choices was used
 strata: strata if stratified survfit object inputted
 stratum: The error stratum

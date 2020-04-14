@@ -1,7 +1,7 @@
 Type: Package
 Package: modeltests
 Title: Testing Infrastructure for Broom Model Generics
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: 
     person(given = "Alex",
            family = "Hayes",
@@ -23,7 +23,7 @@ Imports:
     generics,
     purrr (>= 0.2.5),
     testthat (>= 2.0.0),
-    tibble (>= 1.4.2)
+    tibble (>= 3.0.0)
 Suggests: 
     covr
 Encoding: UTF-8

@@ -1,4 +1,4 @@
-context("test-check_augment_data_specification")
+library(tibble)
 
 base_aug <- function(data = NULL, newdata = NULL) {
   df <- if (!is.null(newdata)) newdata else data
@@ -18,14 +18,14 @@ consistent_aug <- function(model, data = NULL, newdata = NULL) {
 # behaves differently for data frame and tibble input
 inconsistent_tibble_aug <- function(model, data = NULL, newdata = NULL) {
   df <- base_aug(data, newdata)
-  df[1, 1] <- if (is_tibble(df)) "pineapple" else "strawberry"
+  df[1, 1] <- if (is_tibble(df)) 1 else 2
   as_tibble(df)
 }
 
 # behaves differently for data frames and dataframe with rownames
 inconsistent_rowname_aug <- function(model, data = NULL, newdata = NULL) {
   df <- base_aug(data, newdata)
-  df[1, 1] <- if (has_rownames(df)) "pineapple" else "strawberry"
+  df[1, 1] <- if (has_rownames(df)) 1 else 2
   as_tibble(df)
 }
 

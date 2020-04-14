@@ -23,8 +23,12 @@
 augment_data_helper <- function(data, add_missing) {
 
   if (add_missing) {
-    diag(data) <- NA
-    data[nrow(data) + 1, ] <- rep(NA, ncol(data))
+
+    for (i in 1:min(nrow(data), ncol(data))) {
+      data[i, i] <- NA
+    }
+
+    data <- tibble::add_row(data)
   }
 
   tibble <- tibble::as_tibble(data)

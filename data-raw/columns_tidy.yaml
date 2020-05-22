@@ -11,7 +11,6 @@ cluster: A factor describing the cluster from 1:k
 coef.type: Type of coefficient.
 column1: Name or index of the first column being described
 column2: Name or index of the second column being described
-comp: Comparison? Component? TODO
 comparison: Levels being compared.
 component: ID of the cluster or component being considered.
 conf.high: Upper bound on the confidence interval for the estimate.

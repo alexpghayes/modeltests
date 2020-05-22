@@ -49,7 +49,7 @@ mean: The mean for each component. In case of 2+ dimensional models, a column wi
   the mean is added for each dimension. NA for noise component
 meansq: Mean sum of squares. Equal to total sum of squares divided by degrees of freedom.
 method: Method used.
-'n': Number of TODO
+'n': Number of observations by component.
 'N': number of subjects in each group
 n.censor: number of censored events
 n.event: number of events at time t
@@ -73,7 +73,7 @@ response: Which response column the coefficients correspond to (typically `Y1`, 
   etc).
 rhs: Right hand side.
 robust.se: robust version of standard error estimate.
-row: Needs better doc. TODO.
+row: Row ID of the original observation.
 scale: Scaling factor of estimated coefficient
 series: Name of the series (present only for multivariate time series).
 size: Number of points assigned to cluster.
@@ -101,9 +101,7 @@ time: Point in time.
 tpr: The true positive rate at the given cutoff.
 type: Either "weighted" or "unweighted"
 uniqueness: Proportion of residual, or unexplained variance
-value: Either the value/estimate of variable given in adjacent `series`/`variable`
-  column (results from data reshaping) or the optimized parameter value relative to
-  a function
+value: The value/estimate of the component. Results from data reshaping.
 var_kendall_score: Variance of the kendall_score.
 variable: Variable under consideration.
 variance: In case of one-dimensional and spherical models, the variance for each component,

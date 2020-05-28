@@ -21,6 +21,7 @@ matrix: asdf
 measure: Measure type used in meta-analysis.
 na.rm: asdf
 object: asdf
+p.values: Logical, whether to report p-values for MASS::polr models
 par_type: asdf
 parameters: asdf
 parametric: asdf

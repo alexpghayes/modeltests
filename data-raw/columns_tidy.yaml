@@ -11,6 +11,7 @@ cluster: A factor describing the cluster from 1:k.
 coef.type: Type of coefficient.
 column1: Name or index of the first column being described.
 column2: Name or index of the second column being described.
+comp: ID of the model component.
 comparison: Levels being compared.
 component: ID of the cluster or component being considered.
 conf.high: Upper bound on the confidence interval for the estimate.
@@ -46,6 +47,7 @@ lag: Lag values.
 lambda: Value of penalty parameter lambda.
 letters: Compact letter display denoting all pair-wise comparisons.
 lhs: Left hand side.
+logLik: Log-likelihood at the fitted value of the parameters.
 mcmc.error: The MCMC error.
 mean: The mean for each component. In case of 2+ dimensional models, a column with
   the mean is added for each dimension. NA for noise component.

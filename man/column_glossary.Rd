@@ -4,12 +4,14 @@
 \name{column_glossary}
 \alias{column_glossary}
 \title{Allowed column names in tidied tibbles}
-\format{A tibble with 4 variables:
+\format{
+A tibble with 4 variables:
 \describe{
 \item{method}{One of "glance", "augment" or "tidy".}
 \item{column}{Character name of allowed output column.}
 \item{description}{Character description of expected column contents.}
-}}
+}
+}
 \usage{
 column_glossary
 }

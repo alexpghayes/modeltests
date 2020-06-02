@@ -21,7 +21,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Alex Hayes \email{alexpghayes@gmail.com} (0000-0002-4985-5160)
+\strong{Maintainer}: Alex Hayes \email{alexpghayes@gmail.com} (\href{https://orcid.org/0000-0002-4985-5160}{ORCID})
 
 }
 \keyword{internal}

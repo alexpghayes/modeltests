@@ -3,20 +3,20 @@ Package: modeltests
 Title: Testing Infrastructure for Broom Model Generics
 Version: 0.1.2
 Authors@R: 
-    person(given = "Alex",
-           family = "Hayes",
-           role = c("aut", "cre"),
-           email = "alexpghayes@gmail.com",
-           comment = c(ORCID = "0000-0002-4985-5160"),
-    person(given = "Simon",
-           family = "Couch",
-           role = c("ctb"),
-           email = "simonpatrickcouch@gmail.com")
+    c(person(given = "Alex",
+             family = "Hayes",
+             role = c("aut", "cre"),
+             email = "alexpghayes@gmail.com",
+             comment = c(ORCID = "0000-0002-4985-5160")),
+      person(given = "Simon",
+             family = "Couch",
+             role = "ctb",
+             email = "simonpatrickcouch@gmail.com"))
 Description: Provides a number of testthat tests that can be
     used to verify that tidy(), glance() and augment() methods meet
-    consistent specifications. This allows methods for the same generic
-    to be spread across multiple packages, since all of those packages
-    can make the same guarantees to users about returned objects.
+    consistent specifications. This allows methods for the same generic to
+    be spread across multiple packages, since all of those packages can
+    make the same guarantees to users about returned objects.
 License: MIT + file LICENSE
 URL: https://github.com/alexpghayes/modeltests
 BugReports: https://github.com/alexpghayes/modeltests/issues

@@ -1,13 +1,20 @@
 ## modeltests
 
-This submission fixes failures due to changes to the `tibble` package associated with the 3.0.0 release
+This submission extends the argument and column glossaries used for unit
+testing in modeling packages to accommodate the upcoming broom release.
 
 ## Test environments
 
-* local Windows 8 install: R 3.6
+* local OS X install: R 3.6
 * win-builder: oldrel, rel, devel
 * rhub: oldrel, rel, devel
 
 ## R CMD check results
 
 There were no ERRORs, WARNINGs or NOTEs.
+
+## Downstream dependencies
+
+I have also run R CMD check on the one downstream dependency of modeltests,
+ItemResponseTrees, and the package passes with no ERRORs, WARNINGs, or
+NOTEs.

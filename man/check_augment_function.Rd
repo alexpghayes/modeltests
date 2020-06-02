@@ -4,8 +4,7 @@
 \alias{check_augment_function}
 \title{Check an augment method}
 \usage{
-check_augment_function(aug, model, data = NULL, newdata = NULL,
-  strict = TRUE)
+check_augment_function(aug, model, data = NULL, newdata = NULL, strict = TRUE)
 }
 \arguments{
 \item{aug}{An augment method. For example, \code{augment.betareg}.}

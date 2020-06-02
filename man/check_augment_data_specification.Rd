@@ -4,8 +4,7 @@
 \alias{check_augment_data_specification}
 \title{Check that augment behavior is consistent for dataframes and tibbles}
 \usage{
-check_augment_data_specification(aug, model, data, add_missing,
-  test_newdata)
+check_augment_data_specification(aug, model, data, add_missing, test_newdata)
 }
 \arguments{
 \item{aug}{An augment method. For example, \code{augment.betareg}.}

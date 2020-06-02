@@ -1,6 +1,6 @@
 # modeltests 0.1.2
 
-* Extended the argument and column glossaries to accomodate changes in
+* Extended the argument and column glossaries to accommodate changes in
 the upcoming broom release.
 
 # modeltests 0.1.1

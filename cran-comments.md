@@ -1,7 +1,7 @@
 ## modeltests
 
 This submission extends the argument and column glossaries used for unit
-testing in modeling packages to accomodate the upcoming broom release.
+testing in modeling packages to accommodate the upcoming broom release.
 
 ## Test environments
 

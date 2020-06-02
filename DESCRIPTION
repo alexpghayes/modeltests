@@ -7,7 +7,11 @@ Authors@R:
            family = "Hayes",
            role = c("aut", "cre"),
            email = "alexpghayes@gmail.com",
-           comment = c(ORCID = "0000-0002-4985-5160"))
+           comment = c(ORCID = "0000-0002-4985-5160"),
+    person(given = "Simon",
+           family = "Couch",
+           role = c("ctb"),
+           email = "simonpatrickcouch@gmail.com")
 Description: Provides a number of testthat tests that can be
     used to verify that tidy(), glance() and augment() methods meet
     consistent specifications. This allows methods for the same generic

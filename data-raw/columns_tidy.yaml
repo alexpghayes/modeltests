@@ -3,6 +3,8 @@ adj.p.value: P-value adjusted for multiple comparisons.
 alternative: Alternative hypothesis (character).
 atmean: Marginal effects were calculated as either partial effects for the mean observation
   (TRUE), or as mean partial effects (FALSE).
+at.variable: Variable(s) used to calculate average marginal effects (AMEs).
+at.value: Value(s) used to calculate AMEs.
 autocorrelation: Autocorrelation.
 bias: Bias of the statistic.
 ci.width: Expected width of confidence interval.

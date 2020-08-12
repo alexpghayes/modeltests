@@ -8,9 +8,9 @@
 \description{
 Provides a number of testthat tests that can be
     used to verify that tidy(), glance() and augment() methods meet
-    consistent specifications. This allows methods for the same generic
-    to be spread across multiple packages, since all of those packages
-    can make the same guarantees to users about returned objects.
+    consistent specifications. This allows methods for the same generic to
+    be spread across multiple packages, since all of those packages can
+    make the same guarantees to users about returned objects.
 }
 \seealso{
 Useful links:
@@ -22,6 +22,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Alex Hayes \email{alexpghayes@gmail.com} (\href{https://orcid.org/0000-0002-4985-5160}{ORCID})
+
+Other contributors:
+\itemize{
+  \item Simon Couch \email{simonpatrickcouch@gmail.com} [contributor]
+}
 
 }
 \keyword{internal}

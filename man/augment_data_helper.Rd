@@ -30,6 +30,6 @@ the dataset. Useful for checking that tibbles, data frames, and data frames with
 rownames are treated equivalently.
 }
 \seealso{
-\code{\link[=.row_names_info]{.row_names_info()}}, \code{\link[=rownames]{rownames()}}, \code{\link[tibble:rownames_to_column]{tibble::rownames_to_column()}}
+\code{\link[=.row_names_info]{.row_names_info()}}, \code{\link[=rownames]{rownames()}}, \code{\link[tibble:rownames]{tibble::rownames_to_column()}}
 }
 \keyword{internal}

@@ -95,6 +95,7 @@ p.value.cochran.qm: In meta-analysis, p-value for the Cochran's Q_m omnibus test
 p.value.original: P-value of original Durbin-Watson statistic.
 p.value.Sargan: P-value for Sargan test.
 p.value.transformed: P-value of autocorrelation after transformation.
+p.value.weak.instr: P-value for weak instrument F-test.
 p.value.Wu.Hausman: P-value for Wu-Hausman test.
 parameter: Parameter field in the htest, typically degrees of freedom.
 pen.crit: Penalized criterion.
@@ -122,6 +123,7 @@ spar: Smoothing parameter.
 srmr: Standardised root mean residual.
 statistic: Test statistic.
 statistic.Sargan: Statistic for Sargan test.
+statistic.weak.instr: Statistic for weak instrument F-test.
 statistic.Wu.Hausman: Statistic for Wu-Hausman test.
 tau: Quantile.
 tau.squared: In meta-analysis, estimated amount of residual heterogeneity.

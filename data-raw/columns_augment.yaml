@@ -15,6 +15,7 @@
 .fitted_j_0: Population-level fitted values for the j-th longitudinal process.
 .fitted_j_1: Individual-level fitted values for the j-th longitudinal process.
 .hat: Diagonal of the hat matrix.
+.lower: Lower bound on interval for fitted values.
 .moderator: In meta-analysis, the moderators used to calculate the predicted values.
 .moderator.level: In meta-analysis, the level of the moderators used to calculate
   the predicted values.
@@ -38,4 +39,5 @@
 .trend: The trend component of the decomposition.
 .uncertainty: The uncertainty associated with the classification. Equal to one minus
   the model class probability.
+.upper: Upper bound on interval for fitted values.
 .weight: The final robust weights.

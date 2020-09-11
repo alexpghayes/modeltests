@@ -1,12 +1,12 @@
 ## modeltests
 
 This submission extends the argument and column glossaries used for unit
-testing in modeling packages to accommodate the upcoming broom release.
+testing in modeling packages to accommodate the upcoming broom release, 0.7.1.
 
 ## Test environments
 
 * local OS X install: R 3.6
-* win-builder: oldrel, rel, devel
+* win-builder: devel
 * rhub: oldrel, rel, devel
 
 ## R CMD check results

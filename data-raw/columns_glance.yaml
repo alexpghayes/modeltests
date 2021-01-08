@@ -49,6 +49,7 @@ iter: Iterations of algorithm/fitting procedure completed.
 iterations: The number of iterations performed before convergence.
 kHKB: Modified HKB estimate of the ridge constant.
 kLW: Modified L-W estimate of the ridge constant.
+lag.order: Lag order.
 lambda: Choice of lambda corresponding to `spar`.
 lambda.1se: The value of the penalization parameter lambda that results in the sparsest
   model while remaining within one standard error of the minimum loss.

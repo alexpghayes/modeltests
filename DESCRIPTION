@@ -10,7 +10,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-4985-5160")),
       person(given = "Simon",
              family = "Couch",
-             role = "ctb",
+             role = "aut",
              email = "simonpatrickcouch@gmail.com"))
 Description: Provides a number of testthat tests that can be
     used to verify that tidy(), glance() and augment() methods meet

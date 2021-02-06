@@ -7,7 +7,6 @@ atmean: Marginal effects were calculated as either partial effects for the mean 
   (TRUE), or as mean partial effects (FALSE).
 autocorrelation: Autocorrelation.
 bias: Bias of the statistic.
-ci.width: Expected width of confidence interval.
 class: The class under consideration.
 cluster: A factor describing the cluster from 1:k.
 coef.type: Type of coefficient.

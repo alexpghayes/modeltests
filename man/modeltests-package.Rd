@@ -6,11 +6,7 @@
 \alias{modeltests-package}
 \title{modeltests: Testing Infrastructure for Broom Model Generics}
 \description{
-Provides a number of testthat tests that can be
-    used to verify that tidy(), glance() and augment() methods meet
-    consistent specifications. This allows methods for the same generic to
-    be spread across multiple packages, since all of those packages can
-    make the same guarantees to users about returned objects.
+Provides a number of testthat tests that can be used to verify that tidy(), glance() and augment() methods meet consistent specifications. This allows methods for the same generic to be spread across multiple packages, since all of those packages can make the same guarantees to users about returned objects.
 }
 \seealso{
 Useful links:

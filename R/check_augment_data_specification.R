@@ -1,9 +1,11 @@
 #' Check that augment behavior is consistent for dataframes and tibbles
 #'
-#' @template boilerplate
 #' @keywords internal
 #'
-#' @description Uses [augment_data_helper()] to create copies of the same dataset as
+#' @description Call this function to perform tests. If a tests fails, an informative error
+#'   will be thrown. Otherwise silent.
+#'
+#'   Uses [augment_data_helper()] to create copies of the same dataset as
 #' a tibble, data frame and dataframe with rownames. When `add_missing = TRUE` these
 #' datasets have missing values along the diagonal, and one row of entirely missing
 #' values. Once the datasets have been generated, tests that:
@@ -29,6 +31,8 @@
 #'   argument.
 #' @param test_newdata Logical indicating whether the `newdata` argument behavior
 #'   should be tested instead of the `data` argument behavior.
+#'
+#' @return An invisible `NULL`. This function should be called for side effects, not return values.
 #'
 check_augment_data_specification <- function(
   aug,

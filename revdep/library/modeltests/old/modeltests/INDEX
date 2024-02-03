@@ -1,0 +1,19 @@
+acceptable_augment_colnames
+                        Determine acceptable names for augment output
+argument_glossary       Allowed argument names in tidiers
+check_arguments         Check that tidying methods use allowed argument
+                        names
+check_augment_function
+                        Check an augment method
+check_augment_newdata_precedence
+                        Check that newdata argument has higher
+                        precedence than data argument
+check_augment_no_data   Check an augment method when no data or newdata
+                        is passed
+check_dims              Check that tibble has expected dimensions.
+check_glance_outputs    Check the output of a glance method
+check_tibble            Check the output of a tidying method
+check_tidy_output       Check the output of a tidy method
+column_glossary         Allowed column names in tidied tibbles
+has_rownames            Check whether or not a data-frame-like object
+                        has rownames

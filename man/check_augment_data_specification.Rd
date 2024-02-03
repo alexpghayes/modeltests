@@ -20,9 +20,6 @@ argument.}
 
 \item{test_newdata}{Logical indicating whether the \code{newdata} argument behavior
 should be tested instead of the \code{data} argument behavior.}
-
-\item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
-to \code{TRUE}.}
 }
 \value{
 An invisible \code{NULL}. This function should be called for side effects, not return values.

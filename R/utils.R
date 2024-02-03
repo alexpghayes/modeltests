@@ -30,6 +30,7 @@ acceptable_augment_colnames <- function(object, passed_data) {
   UseMethod("acceptable_augment_colnames")
 }
 
+#' @export
 acceptable_augment_colnames.default <- function(object, passed_data) {
   safe_mf <- purrr::possibly(stats::model.frame, NULL)
   mf <- safe_mf(object)
@@ -37,6 +38,7 @@ acceptable_augment_colnames.default <- function(object, passed_data) {
   c(mf_cols, make.names(mf_cols), colnames(passed_data))
 }
 
+#' @export
 acceptable_augment_colnames.poLCA <- function(object, passed_data) {
   c(colnames(object$x), colnames(object$y))
 }

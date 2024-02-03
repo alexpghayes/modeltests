@@ -1,0 +1,38 @@
+Type: Package
+Package: modeltests
+Title: Testing Infrastructure for Broom Model Generics
+Version: 0.1.4
+Authors@R: 
+    c(person(given = "Alex",
+             family = "Hayes",
+             role = c("aut", "cre"),
+             email = "alexpghayes@gmail.com",
+             comment = c(ORCID = "0000-0002-4985-5160")),
+      person(given = "Simon",
+             family = "Couch",
+             role = "aut",
+             email = "simonpatrickcouch@gmail.com"))
+Description: Provides a number of testthat tests that can be
+    used to verify that tidy(), glance() and augment() methods meet
+    consistent specifications. This allows methods for the same generic to
+    be spread across multiple packages, since all of those packages can
+    make the same guarantees to users about returned objects.
+License: MIT + file LICENSE
+URL: https://github.com/alexpghayes/modeltests
+BugReports: https://github.com/alexpghayes/modeltests/issues
+Depends: R (>= 3.1)
+Imports: dplyr (>= 0.7.6), generics, purrr (>= 0.2.5), testthat (>=
+        2.0.0), tibble (>= 3.0.0)
+Suggests: covr
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+RemoteType: local
+RemoteUrl: /home/alex/Desktop/modeltests
+NeedsCompilation: no
+Packaged: 2024-02-03 04:07:29 UTC; alex
+Author: Alex Hayes [aut, cre] (<https://orcid.org/0000-0002-4985-5160>),
+  Simon Couch [aut]
+Maintainer: Alex Hayes <alexpghayes@gmail.com>
+Built: R 4.2.2; ; 2024-02-03 04:07:29 UTC; unix

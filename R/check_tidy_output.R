@@ -5,7 +5,6 @@
 #' @description A thin wrapper around [check_tibble()].
 #'
 #' @param td Output from a tidy method.
-#' @inherit check_tibble params return
 #'
 #' @export
 check_tidy_output <- function(td, strict = TRUE) {

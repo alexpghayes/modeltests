@@ -1,7 +1,7 @@
 Type: Package
 Package: modeltests
 Title: Testing Infrastructure for Broom Model Generics
-Version: 0.1.5
+Version: 0.1.5.9000
 Authors@R: 
     c(person(given = "Alex",
              family = "Hayes",

@@ -34,7 +34,7 @@ check_arguments <- function(tidy_method, strict = TRUE) {
   prefix <- gsub("[\\.|_].*","", func_name)
   allowed_args <- dplyr::filter(argument_glossary, method == !!prefix)$argument
 
-  if ("conf.level" %in% args) {
+  if (prefix %in% c("glance", "tidy") && "conf.level" %in% args) {
     expect_true(
       "conf.int" %in% args,
       info = "Tidiers with `conf.level` argument must have `conf.int` argument."

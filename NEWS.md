@@ -1,4 +1,6 @@
-# modeltests (development version)
+# modeltests 0.1.6
+
+* Add conf.level argument for compatibility with upcoming `broom` release
 
 # modeltests 0.1.5
 

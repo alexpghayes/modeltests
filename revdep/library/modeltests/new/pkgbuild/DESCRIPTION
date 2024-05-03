@@ -1,6 +1,6 @@
 Package: pkgbuild
 Title: Find Tools Needed to Build R Packages
-Version: 1.4.3
+Version: 1.4.4
 Authors@R: c(
     person("Hadley", "Wickham", role = "aut"),
     person("Jim", "Hester", role = "aut"),
@@ -22,12 +22,12 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-12-10 13:32:36 UTC; gaborcsardi
+Packaged: 2024-03-17 14:13:01 UTC; gaborcsardi
 Author: Hadley Wickham [aut],
   Jim Hester [aut],
   Gábor Csárdi [aut, cre],
   Posit Software, PBC [cph, fnd]
 Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-12-10 14:00:06 UTC
-Built: R 4.2.2; ; 2024-02-03 04:06:24 UTC; unix
+Date/Publication: 2024-03-17 14:40:02 UTC
+Built: R 4.3.1; ; 2024-05-03 17:23:35 UTC; unix

@@ -1,3 +1,7 @@
+# modeltests 0.1.5
+
+* Minor changes to documentation for upcoming version of R
+
 # modeltests 0.1.4
 
 * Extended the argument and column glossaries to accommodate changes in

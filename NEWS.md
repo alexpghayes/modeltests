@@ -1,4 +1,4 @@
-# modeltests (development version)
+# modeltests 0.1.7
 
 * Improve documentation cross-linking to other packages for CRAN compatibility
 

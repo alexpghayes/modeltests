@@ -16,7 +16,7 @@
 #' - `exponentiate` defaults to `FALSE` when present.
 #' - All arguments to `tidy_method` are listed in the [argument_glossary].
 #'
-#' @seealso [testthat], [testthat::expect_true()]
+#' @seealso [testthat::expect_true()]
 #' @export
 #'
 check_arguments <- function(tidy_method, strict = TRUE) {

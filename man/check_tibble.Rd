@@ -7,13 +7,13 @@
 check_tibble(output, method, columns = colnames(output), strict = TRUE)
 }
 \arguments{
-\item{output}{Object returned from \code{\link[=tidy]{tidy()}}, \code{\link[=augment]{augment()}} or \code{\link[=glance]{glance()}}.}
+\item{output}{Object returned from \code{\link[broom:reexports]{broom::tidy()}}, \code{\link[broom:reexports]{broom::augment()}} or \code{\link[broom:reexports]{broom::glance()}}.}
 
 \item{method}{One of \code{"tidy"}, \code{"augment"} or \code{"glance"}. Determines
 which set of column name checks are applied.}
 
 \item{columns}{The names of the columns in the output data frame. Defaults
-to the column names of \code{output}. Useful when checking \code{\link[=augment]{augment()}} when you only
+to the column names of \code{output}. Useful when checking \code{\link[broom:reexports]{broom::augment()}} when you only
 want to check the new columns in the data frame, as opposed to all
 columns.}
 

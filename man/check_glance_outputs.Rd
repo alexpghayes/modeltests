@@ -7,7 +7,7 @@
 check_glance_outputs(..., strict = TRUE)
 }
 \arguments{
-\item{...}{Outputs returned from calls to (the same) \link{glance} method.}
+\item{...}{Outputs returned from calls to (the same) \code{\link[broom:reexports]{broom::glance()}} method.}
 
 \item{strict}{Logical indicating whether the strict version of tests should be used. Defaults
 to \code{TRUE}.}

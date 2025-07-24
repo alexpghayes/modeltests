@@ -35,5 +35,5 @@ Tests when \code{strict = TRUE}:
 }
 }
 \seealso{
-\link{testthat}, \code{\link[testthat:logical-expectations]{testthat::expect_true()}}
+\code{\link[testthat:logical-expectations]{testthat::expect_true()}}
 }

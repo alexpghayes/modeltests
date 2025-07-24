@@ -2,7 +2,7 @@
 #'
 #' @template boilerplate
 #'
-#' @param ... Outputs returned from calls to (the same) [glance] method.
+#' @param ... Outputs returned from calls to (the same) [broom::glance()] method.
 #'
 #' @description Tests when `strict = FALSE`:
 #'

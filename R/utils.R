@@ -58,6 +58,7 @@ has_rownames <- function(df) {
   any(rownames(df) != as.character(1:nrow(df)))
 }
 
+#' @noRd
 all.equal.tbl_df <- function(target, current, ...) {
   df_target <- as.data.frame(target)
   df_current <- as.data.frame(current)

@@ -7,7 +7,7 @@
 check_single_augment_output(au, passed_data, model = NULL, strict = TRUE)
 }
 \arguments{
-\item{au}{Output from a call to \code{\link[=augment]{augment()}}.}
+\item{au}{Output from a call to \code{\link[broom:reexports]{broom::augment()}}.}
 
 \item{passed_data}{Whichever of \code{data} or \code{newdata} was passed to
 \code{augment}. Should be a data frame or tibble.}

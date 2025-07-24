@@ -5,11 +5,11 @@
 #'
 #' @template boilerplate
 #'
-#' @param output Object returned from [tidy()], [augment()] or [glance()].
+#' @param output Object returned from [broom::tidy()], [broom::augment()] or [broom::glance()].
 #' @param method One of `"tidy"`, `"augment"` or `"glance"`. Determines
 #'   which set of column name checks are applied.
 #' @param columns The names of the columns in the output data frame. Defaults
-#'   to the column names of `output`. Useful when checking [augment()] when you only
+#'   to the column names of `output`. Useful when checking [broom::augment()] when you only
 #'   want to check the new columns in the data frame, as opposed to all
 #'   columns.
 #'

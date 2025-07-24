@@ -1,5 +1,7 @@
 # modeltests (development version)
 
+* Improve documentation cross-linking to other packages for CRAN compatibility
+
 # modeltests 0.1.6
 
 * Add conf.level argument for compatibility with upcoming `broom` release

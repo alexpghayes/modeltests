@@ -3,7 +3,7 @@
 #' @template boilerplate
 #' @keywords internal
 #'
-#' @param au Output from a call to [augment()].
+#' @param au Output from a call to [broom::augment()].
 #' @param passed_data Whichever of `data` or `newdata` was passed to
 #'   `augment`. Should be a data frame or tibble.
 #'

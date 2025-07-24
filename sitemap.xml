@@ -1,72 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/acceptable_augment_colnames.html</loc>
-  </url>
-  <url>
-    <loc>/reference/argument_glossary.html</loc>
-  </url>
-  <url>
-    <loc>/reference/augment_data_helper.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_arguments.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_augment_data_specification.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_augment_function.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_augment_newdata_precedence.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_augment_no_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_dims.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_glance_outputs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_single_augment_output.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_tibble.html</loc>
-  </url>
-  <url>
-    <loc>/reference/check_tidy_output.html</loc>
-  </url>
-  <url>
-    <loc>/reference/column_glossary.html</loc>
-  </url>
-  <url>
-    <loc>/reference/has_rownames.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/modeltests-package.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/acceptable_augment_colnames.html</loc></url>
+<url><loc>/reference/argument_glossary.html</loc></url>
+<url><loc>/reference/augment_data_helper.html</loc></url>
+<url><loc>/reference/check_arguments.html</loc></url>
+<url><loc>/reference/check_augment_data_specification.html</loc></url>
+<url><loc>/reference/check_augment_function.html</loc></url>
+<url><loc>/reference/check_augment_newdata_precedence.html</loc></url>
+<url><loc>/reference/check_augment_no_data.html</loc></url>
+<url><loc>/reference/check_dims.html</loc></url>
+<url><loc>/reference/check_glance_outputs.html</loc></url>
+<url><loc>/reference/check_single_augment_output.html</loc></url>
+<url><loc>/reference/check_tibble.html</loc></url>
+<url><loc>/reference/check_tidy_output.html</loc></url>
+<url><loc>/reference/column_glossary.html</loc></url>
+<url><loc>/reference/has_rownames.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/modeltests-package.html</loc></url>
 </urlset>
+

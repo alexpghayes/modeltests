@@ -18,6 +18,8 @@ comparison: Levels being compared.
 component: ID of the cluster or component being considered.
 conf.high: Upper bound on the confidence interval for the estimate.
 conf.low: Lower bound on the confidence interval for the estimate.
+conf.method: Method used to compute confidence interval.
+conf.type: Type of confidence interval.
 contrast: Levels being compared.
 cumulative: Cumulative percentage of variation explained.
 cutoff: The cutoff used for classification. Observations with predicted probabilities

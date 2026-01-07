@@ -1,4 +1,4 @@
-# modeltests (development version)
+# modeltests 0.1.8
 
 * Add additional allowed column names for compatibility with `cSEM` package
 

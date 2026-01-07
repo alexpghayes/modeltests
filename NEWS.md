@@ -1,5 +1,7 @@
 # modeltests (development version)
 
+* Add additional allowed column names for compatibility with `cSEM` package
+
 # modeltests 0.1.7
 
 * Improve documentation cross-linking to other packages for CRAN compatibility

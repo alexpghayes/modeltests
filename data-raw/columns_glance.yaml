@@ -133,7 +133,7 @@ rho2: McFadden's rho squared with respect to a market shares (constants-only) mo
 rho20: McFadden's rho squared with respect to an equal shares (no information) model.
 rmean: Restricted mean (see [survival::print.survfit()]).
 rmean.std.error: Restricted mean standard error.
-rmse.theta: The root mean squared residual covariance matrix of the outer model residuals
+rms.theta: The root mean squared residual covariance matrix of the outer model residuals
   (RMS theta).
 rmsea: Root mean square error of approximation.
 rmsea.conf.high: 95 percent upper bound on RMSEA.
